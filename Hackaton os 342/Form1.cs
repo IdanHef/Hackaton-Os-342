@@ -109,7 +109,7 @@ namespace Hackaton_os_342
             userControl1.Show();
 
             SetAllControlsVisibility_ver2();
-            //StartProducerConsumerCommunication();
+            StartProducerConsumerCommunication();
         }
 
         private void SetAllControlsVisibility(Control control, bool isVisible)
@@ -145,6 +145,20 @@ namespace Hackaton_os_342
         {
             producerThread = new Thread(() => producer.ProduceItems(producerCount));
             consumerThread = new Thread(() => consumer.ConsumeItems(consumerCount));
+            // Start the producer and consumer threads
+        producerThread.Start();
+        consumerThread.Start();
+
+            producerThread.Start();
+            consumerThread.Start();
+
+            // Optionally, you can join the threads to wait for their completion
+            producerThread.Join();
+            consumerThread.Join();
+
+            // You can also update the UI or display status messages here
+            // to indicate that the producer and consumer actions have started.
+
         }
         
 

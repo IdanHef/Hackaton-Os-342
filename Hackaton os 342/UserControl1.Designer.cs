@@ -29,23 +29,23 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(UserControl1));
-            label1 = new Label();
-            label2 = new Label();
-            label3 = new Label();
-            label4 = new Label();
-            textBox1 = new TextBox();
-            textBox2 = new TextBox();
-            textBox3 = new TextBox();
-            textBox4 = new TextBox();
-            label5 = new Label();
-            pictureBox1 = new PictureBox();
-            label7 = new Label();
-            label8 = new Label();
-            button1 = new Button();
-            pictureBox2 = new PictureBox();
-            ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)pictureBox2).BeginInit();
-            SuspendLayout();
+            this.label1 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
+            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.textBox3 = new System.Windows.Forms.TextBox();
+            this.textBox4 = new System.Windows.Forms.TextBox();
+            this.label5 = new System.Windows.Forms.Label();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.label7 = new System.Windows.Forms.Label();
+            this.label8 = new System.Windows.Forms.Label();
+            this.button1 = new System.Windows.Forms.Button();
+            this.pictureBox2 = new System.Windows.Forms.PictureBox();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
+            this.SuspendLayout();
             // 
             // label1
             // 
@@ -64,6 +64,7 @@
             this.label2.Size = new System.Drawing.Size(92, 20);
             this.label2.TabIndex = 1;
             this.label2.Text = "Time \\ Clock";
+            this.label2.Click += new System.EventHandler(this.label2_Click);
             // 
             // label3
             // 
@@ -76,13 +77,12 @@
             // 
             // label4
             // 
-            label4.AutoSize = true;
-            label4.Location = new Point(159, 423);
-            label4.Name = "label4";
-            label4.Size = new Size(158, 20);
-            label4.TabIndex = 3;
-            label4.Text = "How many are waiting";
-            label4.Click += label4_Click;
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(159, 423);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(158, 20);
+            this.label4.TabIndex = 3;
+            this.label4.Text = "How many are waiting";
             // 
             // textBox1
             // 
@@ -90,7 +90,6 @@
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(125, 27);
             this.textBox1.TabIndex = 4;
-            //this.textBox1.TextChanged += new System.EventHandler(this.textBox1_TextChanged_1);
             // 
             // textBox2
             // 
@@ -115,12 +114,12 @@
             // 
             // label5
             // 
-            label5.AutoSize = true;
-            label5.Location = new Point(159, 550);
-            label5.Name = "label5";
-            label5.Size = new Size(149, 20);
-            label5.TabIndex = 8;
-            label5.Text = "average waiting time";
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(159, 550);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(149, 20);
+            this.label5.TabIndex = 8;
+            this.label5.Text = "average waiting time";
             // 
             // pictureBox1
             // 
@@ -159,40 +158,39 @@
             // 
             // pictureBox2
             // 
-            pictureBox2.Image = (Image)resources.GetObject("pictureBox2.Image");
-            pictureBox2.Location = new Point(775, 49);
-            pictureBox2.Name = "pictureBox2";
-            pictureBox2.Size = new Size(481, 106);
-            pictureBox2.SizeMode = PictureBoxSizeMode.StretchImage;
-            pictureBox2.TabIndex = 14;
-            pictureBox2.TabStop = false;
-            pictureBox2.Click += pictureBox2_Click;
+            this.pictureBox2.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox2.Image")));
+            this.pictureBox2.Location = new System.Drawing.Point(775, 49);
+            this.pictureBox2.Name = "pictureBox2";
+            this.pictureBox2.Size = new System.Drawing.Size(481, 106);
+            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox2.TabIndex = 14;
+            this.pictureBox2.TabStop = false;
             // 
             // UserControl1
             // 
-            AutoScaleDimensions = new SizeF(8F, 20F);
-            AutoScaleMode = AutoScaleMode.Font;
-            Controls.Add(pictureBox2);
-            Controls.Add(button1);
-            Controls.Add(label8);
-            Controls.Add(label7);
-            Controls.Add(pictureBox1);
-            Controls.Add(label5);
-            Controls.Add(textBox4);
-            Controls.Add(textBox3);
-            Controls.Add(textBox2);
-            Controls.Add(textBox1);
-            Controls.Add(label4);
-            Controls.Add(label3);
-            Controls.Add(label2);
-            Controls.Add(label1);
-            Name = "UserControl1";
-            Size = new Size(1412, 826);
-            Load += UserControl1_Load;
-            ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
-            ((System.ComponentModel.ISupportInitialize)pictureBox2).EndInit();
-            ResumeLayout(false);
-            PerformLayout();
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.pictureBox2);
+            this.Controls.Add(this.button1);
+            this.Controls.Add(this.label8);
+            this.Controls.Add(this.label7);
+            this.Controls.Add(this.pictureBox1);
+            this.Controls.Add(this.label5);
+            this.Controls.Add(this.textBox4);
+            this.Controls.Add(this.textBox3);
+            this.Controls.Add(this.textBox2);
+            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.label4);
+            this.Controls.Add(this.label3);
+            this.Controls.Add(this.label2);
+            this.Controls.Add(this.label1);
+            this.Name = "UserControl1";
+            this.Size = new System.Drawing.Size(1412, 826);
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
+            this.ResumeLayout(false);
+            this.PerformLayout();
+
         }
 
         #endregion
