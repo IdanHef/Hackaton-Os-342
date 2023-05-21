@@ -35,6 +35,14 @@ public class Buffer
             if (availableChair != null)
             {
                 availableChair.TakeChair();
+                PictureBox pictureBox = new PictureBox();
+                pictureBox.Image = // Set the image for the PictureBox
+                pictureBox.Location = // Set the location (top-left coordinates) where you want the PictureBox to appear on the form
+                pictureBox.Size = // Set the size of the PictureBox
+                //pictureBox.SizeMode = PictureBoxSizeMode.StretchImage; // Adjust the size mode according to your needs
+
+                // Add the PictureBox to the form's Controls collection 
+                Hackaton_os_342.Form1.getControlers();
                 return availableChair;
             }
 
