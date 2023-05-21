@@ -6,3 +6,13 @@ D:\My documents\university\year 2 semester 2\Operating System\homeworks\hw2\Hack
 D:\My documents\university\year 2 semester 2\Operating System\homeworks\hw2\Hackaton os 342\Hackaton os 342\obj\Debug\net6.0-windows\Hackaton os 342.AssemblyInfoInputs.cache
 D:\My documents\university\year 2 semester 2\Operating System\homeworks\hw2\Hackaton os 342\Hackaton os 342\obj\Debug\net6.0-windows\Hackaton os 342.AssemblyInfo.cs
 D:\My documents\university\year 2 semester 2\Operating System\homeworks\hw2\Hackaton os 342\Hackaton os 342\obj\Debug\net6.0-windows\Hackaton os 342.csproj.CoreCompileInputs.cache
+D:\My documents\university\year 2 semester 2\Operating System\homeworks\hw2\Hackaton os 342\Hackaton os 342\bin\Debug\net6.0-windows\Hackaton os 342.exe
+D:\My documents\university\year 2 semester 2\Operating System\homeworks\hw2\Hackaton os 342\Hackaton os 342\bin\Debug\net6.0-windows\Hackaton os 342.deps.json
+D:\My documents\university\year 2 semester 2\Operating System\homeworks\hw2\Hackaton os 342\Hackaton os 342\bin\Debug\net6.0-windows\Hackaton os 342.runtimeconfig.json
+D:\My documents\university\year 2 semester 2\Operating System\homeworks\hw2\Hackaton os 342\Hackaton os 342\bin\Debug\net6.0-windows\Hackaton os 342.dll
+D:\My documents\university\year 2 semester 2\Operating System\homeworks\hw2\Hackaton os 342\Hackaton os 342\bin\Debug\net6.0-windows\Hackaton os 342.pdb
+D:\My documents\university\year 2 semester 2\Operating System\homeworks\hw2\Hackaton os 342\Hackaton os 342\obj\Debug\net6.0-windows\Hackaton os 342.dll
+D:\My documents\university\year 2 semester 2\Operating System\homeworks\hw2\Hackaton os 342\Hackaton os 342\obj\Debug\net6.0-windows\refint\Hackaton os 342.dll
+D:\My documents\university\year 2 semester 2\Operating System\homeworks\hw2\Hackaton os 342\Hackaton os 342\obj\Debug\net6.0-windows\Hackaton os 342.pdb
+D:\My documents\university\year 2 semester 2\Operating System\homeworks\hw2\Hackaton os 342\Hackaton os 342\obj\Debug\net6.0-windows\Hackaton os 342.genruntimeconfig.cache
+D:\My documents\university\year 2 semester 2\Operating System\homeworks\hw2\Hackaton os 342\Hackaton os 342\obj\Debug\net6.0-windows\ref\Hackaton os 342.dll

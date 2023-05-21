@@ -34,6 +34,10 @@
             this.numberOfConsumersLabel = new System.Windows.Forms.Label();
             this.numberOfConsumersTextBox = new System.Windows.Forms.TextBox();
             this.producersRateLabel = new System.Windows.Forms.Label();
+            this.producersRateTextBox = new System.Windows.Forms.TextBox();
+            this.consumersRateLabel = new System.Windows.Forms.Label();
+            this.consumersRateTextBox = new System.Windows.Forms.TextBox();
+            this.startButton = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // titleLabel
@@ -81,18 +85,55 @@
             // producersRateLabel
             // 
             this.producersRateLabel.AutoSize = true;
-            this.producersRateLabel.Location = new System.Drawing.Point(145, 232);
+            this.producersRateLabel.Location = new System.Drawing.Point(145, 222);
             this.producersRateLabel.Name = "producersRateLabel";
-            this.producersRateLabel.Size = new System.Drawing.Size(160, 20);
+            this.producersRateLabel.Size = new System.Drawing.Size(132, 20);
             this.producersRateLabel.TabIndex = 5;
-            this.producersRateLabel.Text = "Number of Consumers:";
-            this.producersRateLabel.Click += new System.EventHandler(this.producersRateLabel_Click);
+            this.producersRateLabel.Text = "Producers Number";
+            // 
+            // producersRateTextBox
+            // 
+            this.producersRateTextBox.Location = new System.Drawing.Point(441, 222);
+            this.producersRateTextBox.Name = "producersRateTextBox";
+            this.producersRateTextBox.Size = new System.Drawing.Size(125, 27);
+            this.producersRateTextBox.TabIndex = 6;
+            // 
+            // consumersRateLabel
+            // 
+            this.consumersRateLabel.AutoSize = true;
+            this.consumersRateLabel.Location = new System.Drawing.Point(145, 271);
+            this.consumersRateLabel.Name = "consumersRateLabel";
+            this.consumersRateLabel.Size = new System.Drawing.Size(133, 20);
+            this.consumersRateLabel.TabIndex = 7;
+            this.consumersRateLabel.Text = "Consumer Number";
+            // 
+            // consumersRateTextBox
+            // 
+            this.consumersRateTextBox.Location = new System.Drawing.Point(441, 271);
+            this.consumersRateTextBox.Name = "consumersRateTextBox";
+            this.consumersRateTextBox.Size = new System.Drawing.Size(125, 27);
+            this.consumersRateTextBox.TabIndex = 8;
+            this.consumersRateTextBox.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
+            // 
+            // startButton
+            // 
+            this.startButton.Location = new System.Drawing.Point(353, 352);
+            this.startButton.Name = "startButton";
+            this.startButton.Size = new System.Drawing.Size(94, 29);
+            this.startButton.TabIndex = 9;
+            this.startButton.Text = "Start";
+            this.startButton.UseVisualStyleBackColor = true;
+            this.startButton.Click += new System.EventHandler(this.startButton_Click_1);
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.startButton);
+            this.Controls.Add(this.consumersRateTextBox);
+            this.Controls.Add(this.consumersRateLabel);
+            this.Controls.Add(this.producersRateTextBox);
             this.Controls.Add(this.producersRateLabel);
             this.Controls.Add(this.numberOfConsumersTextBox);
             this.Controls.Add(this.numberOfConsumersLabel);
@@ -114,5 +155,9 @@
         private Label numberOfConsumersLabel;
         private TextBox numberOfConsumersTextBox;
         private Label producersRateLabel;
+        private TextBox producersRateTextBox;
+        private Label consumersRateLabel;
+        private TextBox consumersRateTextBox;
+        private Button startButton;
     }
 }
