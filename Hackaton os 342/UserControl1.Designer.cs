@@ -33,46 +33,46 @@
             label2 = new Label();
             label3 = new Label();
             label4 = new Label();
-            textBox1 = new TextBox();
-            textBox2 = new TextBox();
-            textBox3 = new TextBox();
-            textBox4 = new TextBox();
             label5 = new Label();
             pictureBox1 = new PictureBox();
             label7 = new Label();
             label8 = new Label();
             button1 = new Button();
             pictureBox2 = new PictureBox();
+            label6 = new Label();
+            label9 = new Label();
+            label10 = new Label();
+            label11 = new Label();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox2).BeginInit();
             SuspendLayout();
             // 
             // label1
             // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(239, 129);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(65, 20);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "statistics";
+            label1.AutoSize = true;
+            label1.Location = new Point(239, 129);
+            label1.Name = "label1";
+            label1.Size = new Size(65, 20);
+            label1.TabIndex = 0;
+            label1.Text = "statistics";
             // 
             // label2
             // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(159, 224);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(92, 20);
-            this.label2.TabIndex = 1;
-            this.label2.Text = "Time \\ Clock";
+            label2.AutoSize = true;
+            label2.Location = new Point(159, 224);
+            label2.Name = "label2";
+            label2.Size = new Size(92, 20);
+            label2.TabIndex = 1;
+            label2.Text = "Time \\ Clock";
             // 
             // label3
             // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(159, 323);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(143, 20);
-            this.label3.TabIndex = 2;
-            this.label3.Text = "percentage capacity";
+            label3.AutoSize = true;
+            label3.Location = new Point(159, 323);
+            label3.Name = "label3";
+            label3.Size = new Size(143, 20);
+            label3.TabIndex = 2;
+            label3.Text = "percentage capacity";
             // 
             // label4
             // 
@@ -83,35 +83,6 @@
             label4.TabIndex = 3;
             label4.Text = "How many are waiting";
             label4.Click += label4_Click;
-            // 
-            // textBox1
-            // 
-            this.textBox1.Location = new System.Drawing.Point(329, 214);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(125, 27);
-            this.textBox1.TabIndex = 4;
-            //this.textBox1.TextChanged += new System.EventHandler(this.textBox1_TextChanged_1);
-            // 
-            // textBox2
-            // 
-            this.textBox2.Location = new System.Drawing.Point(329, 316);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(125, 27);
-            this.textBox2.TabIndex = 5;
-            // 
-            // textBox3
-            // 
-            this.textBox3.Location = new System.Drawing.Point(329, 423);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(125, 27);
-            this.textBox3.TabIndex = 6;
-            // 
-            // textBox4
-            // 
-            this.textBox4.Location = new System.Drawing.Point(329, 547);
-            this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(125, 27);
-            this.textBox4.TabIndex = 7;
             // 
             // label5
             // 
@@ -124,38 +95,38 @@
             // 
             // pictureBox1
             // 
-            this.pictureBox1.Image = global::Hackaton_os_342.Properties.Resources.red_cinema_theater_hall_top_view_cinema_auditorium_with_screen_and_seats_view_from_above_700_212611330;
-            this.pictureBox1.Location = new System.Drawing.Point(667, 32);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(698, 699);
-            this.pictureBox1.TabIndex = 9;
-            this.pictureBox1.TabStop = false;
+            pictureBox1.Image = Properties.Resources.red_cinema_theater_hall_top_view_cinema_auditorium_with_screen_and_seats_view_from_above_700_212611330;
+            pictureBox1.Location = new Point(667, 32);
+            pictureBox1.Name = "pictureBox1";
+            pictureBox1.Size = new Size(698, 699);
+            pictureBox1.TabIndex = 9;
+            pictureBox1.TabStop = false;
             // 
             // label7
             // 
-            this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(607, 9);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(110, 20);
-            this.label7.TabIndex = 11;
-            this.label7.Text = "My cinema zoo";
+            label7.AutoSize = true;
+            label7.Location = new Point(607, 9);
+            label7.Name = "label7";
+            label7.Size = new Size(110, 20);
+            label7.TabIndex = 11;
+            label7.Text = "My cinema zoo";
             // 
             // label8
             // 
-            this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(950, 99);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(0, 20);
-            this.label8.TabIndex = 12;
+            label8.AutoSize = true;
+            label8.Location = new Point(950, 99);
+            label8.Name = "label8";
+            label8.Size = new Size(0, 20);
+            label8.TabIndex = 12;
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(938, 751);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(94, 29);
-            this.button1.TabIndex = 13;
-            this.button1.Text = "Exit";
-            this.button1.UseVisualStyleBackColor = true;
+            button1.Location = new Point(938, 751);
+            button1.Name = "button1";
+            button1.Size = new Size(94, 29);
+            button1.TabIndex = 13;
+            button1.Text = "Exit";
+            button1.UseVisualStyleBackColor = true;
             // 
             // pictureBox2
             // 
@@ -168,20 +139,56 @@
             pictureBox2.TabStop = false;
             pictureBox2.Click += pictureBox2_Click;
             // 
+            // label6
+            // 
+            label6.AutoSize = true;
+            label6.Location = new Point(410, 215);
+            label6.Name = "label6";
+            label6.Size = new Size(50, 20);
+            label6.TabIndex = 15;
+            label6.Text = "label6";
+            // 
+            // label9
+            // 
+            label9.AutoSize = true;
+            label9.Location = new Point(410, 325);
+            label9.Name = "label9";
+            label9.Size = new Size(50, 20);
+            label9.TabIndex = 16;
+            label9.Text = "label9";
+            // 
+            // label10
+            // 
+            label10.AutoSize = true;
+            label10.Location = new Point(410, 423);
+            label10.Name = "label10";
+            label10.Size = new Size(58, 20);
+            label10.TabIndex = 17;
+            label10.Text = "label10";
+            // 
+            // label11
+            // 
+            label11.AutoSize = true;
+            label11.Location = new Point(410, 550);
+            label11.Name = "label11";
+            label11.Size = new Size(58, 20);
+            label11.TabIndex = 18;
+            label11.Text = "label11";
+            // 
             // UserControl1
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
+            Controls.Add(label11);
+            Controls.Add(label10);
+            Controls.Add(label9);
+            Controls.Add(label6);
             Controls.Add(pictureBox2);
             Controls.Add(button1);
             Controls.Add(label8);
             Controls.Add(label7);
             Controls.Add(pictureBox1);
             Controls.Add(label5);
-            Controls.Add(textBox4);
-            Controls.Add(textBox3);
-            Controls.Add(textBox2);
-            Controls.Add(textBox1);
             Controls.Add(label4);
             Controls.Add(label3);
             Controls.Add(label2);
@@ -211,6 +218,10 @@
         private Label label8;
         private Button button1;
         private PictureBox pictureBox2;
+        private Label label6;
+        private Label label9;
+        private Label label10;
+        private Label label11;
     }
     //786
 }

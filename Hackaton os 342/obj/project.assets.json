@@ -8,19 +8,19 @@
     "net6.0-windows7.0": []
   },
   "packageFolders": {
-    "C:\\Users\\97255\\.nuget\\packages\\": {}
+    "C:\\Users\\physics\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\My documents\\university\\year 2 semester 2\\Operating System\\homeworks\\hw2\\Hackaton os 342\\Hackaton os 342\\Hackaton os 342.csproj",
+      "projectUniqueName": "C:\\Users\\physics\\Documents\\david\\uni\\year_2_semester_2\\Hackaton-Os-342\\Hackaton os 342\\Hackaton os 342.csproj",
       "projectName": "Hackaton os 342",
-      "projectPath": "D:\\My documents\\university\\year 2 semester 2\\Operating System\\homeworks\\hw2\\Hackaton os 342\\Hackaton os 342\\Hackaton os 342.csproj",
-      "packagesPath": "C:\\Users\\97255\\.nuget\\packages\\",
-      "outputPath": "D:\\My documents\\university\\year 2 semester 2\\Operating System\\homeworks\\hw2\\Hackaton os 342\\Hackaton os 342\\obj\\",
+      "projectPath": "C:\\Users\\physics\\Documents\\david\\uni\\year_2_semester_2\\Hackaton-Os-342\\Hackaton os 342\\Hackaton os 342.csproj",
+      "packagesPath": "C:\\Users\\physics\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\physics\\Documents\\david\\uni\\year_2_semester_2\\Hackaton-Os-342\\Hackaton os 342\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\97255\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\physics\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -64,7 +64,7 @@
             "privateAssets": "none"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.402\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.203\\RuntimeIdentifierGraph.json"
       }
     }
   }

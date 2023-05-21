@@ -17,3 +17,22 @@ D:\My documents\university\year 2 semester 2\Operating System\homeworks\hw2\Hack
 D:\My documents\university\year 2 semester 2\Operating System\homeworks\hw2\Hackaton os 342\Hackaton os 342\obj\Debug\net6.0-windows\Hackaton os 342.genruntimeconfig.cache
 D:\My documents\university\year 2 semester 2\Operating System\homeworks\hw2\Hackaton os 342\Hackaton os 342\obj\Debug\net6.0-windows\ref\Hackaton os 342.dll
 D:\My documents\university\year 2 semester 2\Operating System\homeworks\hw2\Hackaton os 342\Hackaton os 342\obj\Debug\net6.0-windows\Hackaton_os_342.Properties.Resources.resources
+C:\Users\physics\Documents\david\uni\year_2_semester_2\Hackaton-Os-342\Hackaton os 342\bin\Debug\net6.0-windows\Hackaton os 342.exe
+C:\Users\physics\Documents\david\uni\year_2_semester_2\Hackaton-Os-342\Hackaton os 342\bin\Debug\net6.0-windows\Hackaton os 342.deps.json
+C:\Users\physics\Documents\david\uni\year_2_semester_2\Hackaton-Os-342\Hackaton os 342\bin\Debug\net6.0-windows\Hackaton os 342.runtimeconfig.json
+C:\Users\physics\Documents\david\uni\year_2_semester_2\Hackaton-Os-342\Hackaton os 342\bin\Debug\net6.0-windows\Hackaton os 342.dll
+C:\Users\physics\Documents\david\uni\year_2_semester_2\Hackaton-Os-342\Hackaton os 342\bin\Debug\net6.0-windows\Hackaton os 342.pdb
+C:\Users\physics\Documents\david\uni\year_2_semester_2\Hackaton-Os-342\Hackaton os 342\obj\Debug\net6.0-windows\Hackaton os 342.csproj.AssemblyReference.cache
+C:\Users\physics\Documents\david\uni\year_2_semester_2\Hackaton-Os-342\Hackaton os 342\obj\Debug\net6.0-windows\Hackaton_os_342.Form1.resources
+C:\Users\physics\Documents\david\uni\year_2_semester_2\Hackaton-Os-342\Hackaton os 342\obj\Debug\net6.0-windows\Hackaton_os_342.Properties.Resources.resources
+C:\Users\physics\Documents\david\uni\year_2_semester_2\Hackaton-Os-342\Hackaton os 342\obj\Debug\net6.0-windows\Hackaton_os_342.UserControl1.resources
+C:\Users\physics\Documents\david\uni\year_2_semester_2\Hackaton-Os-342\Hackaton os 342\obj\Debug\net6.0-windows\Hackaton os 342.csproj.GenerateResource.cache
+C:\Users\physics\Documents\david\uni\year_2_semester_2\Hackaton-Os-342\Hackaton os 342\obj\Debug\net6.0-windows\Hackaton os 342.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\physics\Documents\david\uni\year_2_semester_2\Hackaton-Os-342\Hackaton os 342\obj\Debug\net6.0-windows\Hackaton os 342.AssemblyInfoInputs.cache
+C:\Users\physics\Documents\david\uni\year_2_semester_2\Hackaton-Os-342\Hackaton os 342\obj\Debug\net6.0-windows\Hackaton os 342.AssemblyInfo.cs
+C:\Users\physics\Documents\david\uni\year_2_semester_2\Hackaton-Os-342\Hackaton os 342\obj\Debug\net6.0-windows\Hackaton os 342.csproj.CoreCompileInputs.cache
+C:\Users\physics\Documents\david\uni\year_2_semester_2\Hackaton-Os-342\Hackaton os 342\obj\Debug\net6.0-windows\Hackaton os 342.dll
+C:\Users\physics\Documents\david\uni\year_2_semester_2\Hackaton-Os-342\Hackaton os 342\obj\Debug\net6.0-windows\refint\Hackaton os 342.dll
+C:\Users\physics\Documents\david\uni\year_2_semester_2\Hackaton-Os-342\Hackaton os 342\obj\Debug\net6.0-windows\Hackaton os 342.pdb
+C:\Users\physics\Documents\david\uni\year_2_semester_2\Hackaton-Os-342\Hackaton os 342\obj\Debug\net6.0-windows\Hackaton os 342.genruntimeconfig.cache
+C:\Users\physics\Documents\david\uni\year_2_semester_2\Hackaton-Os-342\Hackaton os 342\obj\Debug\net6.0-windows\ref\Hackaton os 342.dll
