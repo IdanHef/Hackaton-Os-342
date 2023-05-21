@@ -5,15 +5,10 @@ namespace Hackaton_os_342
         public Form1()
         {
             InitializeComponent();
+            Form1_Settings2_Load();
         }
-        private void ProducerConsumerScreen_Load(object sender, EventArgs e)
+        private void Form1_Settings_Load()
         {
-            // Set default values for the integer text boxes
-            numberOfProducersTextBox.Text = "1";
-            numberOfConsumersTextBox.Text = "1";
-            producersRateTextBox.Text = "1000";
-            consumersRateTextBox.Text = "1000";
-
             // Set the form properties
             BackColor = Color.Black;
             ForeColor = Color.Red;
@@ -37,6 +32,36 @@ namespace Hackaton_os_342
 
             startButton.BackColor = Color.Red;
             startButton.ForeColor = Color.Black;
+        }
+
+        private void Form1_Settings2_Load()
+        {
+            // Set the form properties
+            BackColor = Color.FromArgb(20, 20, 20);
+            ForeColor = Color.White;
+            Font = new Font("Arial", 12, FontStyle.Bold);
+
+            // Set the control properties
+            titleLabel.ForeColor = Color.White;
+            numberOfProducersLabel.ForeColor = Color.White;
+            numberOfConsumersLabel.ForeColor = Color.White;
+            producersRateLabel.ForeColor = Color.White;
+            consumersRateLabel.ForeColor = Color.White;
+
+            numberOfProducersTextBox.BackColor = Color.FromArgb(40, 40, 40);
+            numberOfProducersTextBox.ForeColor = Color.White;
+            numberOfConsumersTextBox.BackColor = Color.FromArgb(40, 40, 40);
+            numberOfConsumersTextBox.ForeColor = Color.White;
+            producersRateTextBox.BackColor = Color.FromArgb(40, 40, 40);
+            producersRateTextBox.ForeColor = Color.White;
+            consumersRateTextBox.BackColor = Color.FromArgb(40, 40, 40);
+            consumersRateTextBox.ForeColor = Color.White;
+
+            startButton.BackColor = Color.FromArgb(240, 0, 0);
+            startButton.ForeColor = Color.White;
+            startButton.FlatStyle = FlatStyle.Flat;
+            startButton.FlatAppearance.BorderSize = 0;
+            startButton.Font = new Font("Arial", 12, FontStyle.Bold);
         }
 
 
