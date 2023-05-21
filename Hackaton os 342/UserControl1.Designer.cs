@@ -38,9 +38,9 @@
             textBox4 = new TextBox();
             label5 = new Label();
             pictureBox1 = new PictureBox();
-            label6 = new Label();
             label7 = new Label();
             label8 = new Label();
+            button1 = new Button();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             SuspendLayout();
             // 
@@ -125,21 +125,12 @@
             // pictureBox1
             // 
             pictureBox1.Image = Properties.Resources.red_cinema_theater_hall_top_view_cinema_auditorium_with_screen_and_seats_view_from_above_700_212611330;
-            pictureBox1.Location = new Point(667, 50);
+            pictureBox1.Location = new Point(667, 32);
             pictureBox1.Name = "pictureBox1";
-            pictureBox1.Size = new Size(701, 725);
+            pictureBox1.Size = new Size(698, 699);
             pictureBox1.TabIndex = 9;
             pictureBox1.TabStop = false;
             pictureBox1.Click += pictureBox1_Click;
-            // 
-            // label6
-            // 
-            label6.AutoSize = true;
-            label6.Location = new Point(0, 0);
-            label6.Name = "label6";
-            label6.Size = new Size(50, 20);
-            label6.TabIndex = 10;
-            label6.Text = "label6";
             // 
             // label7
             // 
@@ -160,13 +151,22 @@
             label8.TabIndex = 12;
             label8.Click += label8_Click;
             // 
+            // button1
+            // 
+            button1.Location = new Point(938, 751);
+            button1.Name = "button1";
+            button1.Size = new Size(94, 29);
+            button1.TabIndex = 13;
+            button1.Text = "Exit";
+            button1.UseVisualStyleBackColor = true;
+            // 
             // UserControl1
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
+            Controls.Add(button1);
             Controls.Add(label8);
             Controls.Add(label7);
-            Controls.Add(label6);
             Controls.Add(pictureBox1);
             Controls.Add(label5);
             Controls.Add(textBox4);
@@ -197,9 +197,9 @@
         private TextBox textBox4;
         private Label label5;
         private PictureBox pictureBox1;
-        private Label label6;
         private Label label7;
         private Label label8;
+        private Button button1;
     }
     //786
 }
