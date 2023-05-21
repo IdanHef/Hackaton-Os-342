@@ -16,7 +16,7 @@ namespace Hackaton_os_342
         private int consumerCount;
         private int producerRatio;
         private int consumerRatio;
-        Chair[] chairDimensions;
+        Chair[] chairs;
 
 
 
@@ -25,10 +25,12 @@ namespace Hackaton_os_342
             InitializeComponent();
             Form1_Settings2_Load();
 
-            Chair[] chairDimensions = new Chair[90];
-            buffer = new Buffer(chairDimensions,this);
+            chairs = new Chair[90];
+            initializeChairs();
+            buffer = new Buffer(chairs, this);
             producer = new Producer(buffer);
             consumer = new Consumer(buffer);
+
 
         }
 
@@ -147,9 +149,6 @@ namespace Hackaton_os_342
             producerThread = new Thread(() => producer.ProduceItems(producerCount));
             consumerThread = new Thread(() => consumer.ConsumeItems(consumerCount));
             // Start the producer and consumer threads
-        producerThread.Start();
-        consumerThread.Start();
-
             producerThread.Start();
             consumerThread.Start();
 
@@ -164,107 +163,106 @@ namespace Hackaton_os_342
         
         private void initializeChairs()
         {
-            var coordinates = new[]
-            {
-    new KeyValuePair<int, int>(130, 629),
-    new KeyValuePair<int, int>(131, 518),
-    new KeyValuePair<int, int>(131, 574),
-    new KeyValuePair<int, int>(149, 295),
-    new KeyValuePair<int, int>(149, 351),
-    new KeyValuePair<int, int>(149, 406),
-    new KeyValuePair<int, int>(149, 461),
-    new KeyValuePair<int, int>(167, 239),
-    new KeyValuePair<int, int>(168, 518),
-    new KeyValuePair<int, int>(168, 574),
-    new KeyValuePair<int, int>(168, 628),
-    new KeyValuePair<int, int>(187, 351),
-    new KeyValuePair<int, int>(187, 406),
-    new KeyValuePair<int, int>(187, 461),
-    new KeyValuePair<int, int>(188, 295),
-    new KeyValuePair<int, int>(205, 239),
-    new KeyValuePair<int, int>(206, 518),
-    new KeyValuePair<int, int>(206, 574),
-    new KeyValuePair<int, int>(206, 629),
-    new KeyValuePair<int, int>(224, 351),
-    new KeyValuePair<int, int>(224, 461),
-    new KeyValuePair<int, int>(225, 295),
-    new KeyValuePair<int, int>(225, 406),
-    new KeyValuePair<int, int>(242, 239),
-    new KeyValuePair<int, int>(242, 628),
-    new KeyValuePair<int, int>(243, 517),
-    new KeyValuePair<int, int>(243, 574),
-    new KeyValuePair<int, int>(262, 295),
-    new KeyValuePair<int, int>(262, 351),
-    new KeyValuePair<int, int>(262, 406),
-    new KeyValuePair<int, int>(262, 461),
-    new KeyValuePair<int, int>(280, 239),
-    new KeyValuePair<int, int>(281, 518),
-    new KeyValuePair<int, int>(281, 574),
-    new KeyValuePair<int, int>(281, 629),
-    new KeyValuePair<int, int>(300, 295),
-    new KeyValuePair<int, int>(300, 351),
-    new KeyValuePair<int, int>(300, 406),
-    new KeyValuePair<int, int>(300, 461),
-    new KeyValuePair<int, int>(317, 629),
-    new KeyValuePair<int, int>(318, 239),
-    new KeyValuePair<int, int>(319, 517),
-    new KeyValuePair<int, int>(320, 573),
-    new KeyValuePair<int, int>(336, 351),
-    new KeyValuePair<int, int>(337, 295),
-    new KeyValuePair<int, int>(337, 406),
-    new KeyValuePair<int, int>(338, 461),
-    new KeyValuePair<int, int>(355, 239),
-    new KeyValuePair<int, int>(355, 628),
-    new KeyValuePair<int, int>(356, 573),
-    new KeyValuePair<int, int>(357, 517),
-    new KeyValuePair<int, int>(374, 351),
-    new KeyValuePair<int, int>(375, 295),
-    new KeyValuePair<int, int>(375, 406),
-    new KeyValuePair<int, int>(375, 461),
-    new KeyValuePair<int, int>(392, 239),
-    new KeyValuePair<int, int>(393, 628),
-    new KeyValuePair<int, int>(394, 517),
-    new KeyValuePair<int, int>(394, 572),
-    new KeyValuePair<int, int>(412, 295),
-    new KeyValuePair<int, int>(412, 351),
-    new KeyValuePair<int, int>(412, 406),
-    new KeyValuePair<int, int>(413, 461),
-    new KeyValuePair<int, int>(430, 239),
-    new KeyValuePair<int, int>(430, 516),
-    new KeyValuePair<int, int>(431, 572),
-    new KeyValuePair<int, int>(431, 628),
-    new KeyValuePair<int, int>(449, 351),
-    new KeyValuePair<int, int>(450, 295),
-    new KeyValuePair<int, int>(450, 406),
-    new KeyValuePair<int, int>(450, 461),
-    new KeyValuePair<int, int>(467, 239),
-    new KeyValuePair<int, int>(467, 629),
-    new KeyValuePair<int, int>(468, 572),
-    new KeyValuePair<int, int>(469, 517),
-    new KeyValuePair<int, int>(486, 351),
-    new KeyValuePair<int, int>(487, 295),
-    new KeyValuePair<int, int>(487, 406),
-    new KeyValuePair<int, int>(487, 461),
-    new KeyValuePair<int, int>(505, 239),
-    new KeyValuePair<int, int>(505, 517),
-    new KeyValuePair<int, int>(505, 573),
-    new KeyValuePair<int, int>(505, 628),
-    new KeyValuePair<int, int>(524, 295),
-    new KeyValuePair<int, int>(524, 351),
-    new KeyValuePair<int, int>(524, 461),
-    new KeyValuePair<int, int>(525, 406),
-    new KeyValuePair<int, int>(541, 628),
-    new KeyValuePair<int, int>(542, 517),
-    new KeyValuePair<int, int>(543, 572)
+            int[,] coordinates = new int[,]
+{
+    { 130, 629 },
+    { 131, 518 },
+    { 131, 574 },
+    { 149, 295 },
+    { 149, 351 },
+    { 149, 406 },
+    { 149, 461 },
+    { 167, 239 },
+    { 168, 518 },
+    { 168, 574 },
+    { 168, 628 },
+    { 187, 351 },
+    { 187, 406 },
+    { 187, 461 },
+    { 188, 295 },
+    { 205, 239 },
+    { 206, 518 },
+    { 206, 574 },
+    { 206, 629 },
+    { 224, 351 },
+    { 224, 461 },
+    { 225, 295 },
+    { 225, 406 },
+    { 242, 239 },
+    { 242, 628 },
+    { 243, 517 },
+    { 243, 574 },
+    { 262, 295 },
+    { 262, 351 },
+    { 262, 406 },
+    { 262, 461 },
+    { 280, 239 },
+    { 281, 518 },
+    { 281, 574 },
+    { 281, 629 },
+    { 300, 295 },
+    { 300, 351 },
+    { 300, 406 },
+    { 300, 461 },
+    { 317, 629 },
+    { 318, 239 },
+    { 319, 517 },
+    { 320, 573 },
+    { 336, 351 },
+    { 337, 295 },
+    { 337, 406 },
+    { 338, 461 },
+    { 355, 239 },
+    { 355, 628 },
+    { 356, 573 },
+    { 357, 517 },
+    { 374, 351 },
+    { 375, 295 },
+    { 375, 406 },
+    { 375, 461 },
+    { 392, 239 },
+    { 393, 628 },
+    { 394, 517 },
+    { 394, 572 },
+    { 412, 295 },
+    { 412, 351 },
+    { 412, 406 },
+    { 413, 461 },
+    { 430, 239 },
+    { 430, 516 },
+    { 431, 572 },
+    { 431, 628 },
+    { 449, 351 },
+    { 450, 295 },
+    { 450, 406 },
+    { 450, 461 },
+    { 467, 239 },
+    { 467, 629 },
+    { 468, 572 },
+    { 469, 517 },
+    { 486, 351 },
+    { 487, 295 },
+    { 487, 406 },
+    { 487, 461 },
+    { 505, 239 },
+    { 505, 517 },
+    { 505, 573 },
+    { 505, 628 },
+    { 524, 295 },
+    { 524, 351 },
+    { 524, 461 },
+    { 525, 406 },
+    { 541, 628 },
+    { 542, 517 },
+    { 543, 572 }
 };
-            //for (int i = 0; i < coordinates.Length; i++)
-            //{
-            //    KeyValuePair<int, int> coordinate = coordinates[i];
-            //    int x = coordinate.Key;
-            //    int y = coordinate.Value;
 
-            //    chairDimensions[i] = new Chair()
-            //}
+            for (int i = 0; i < 90; i++)
+            {
+                int x = coordinates[i, 0];
+                int y = coordinates[i, 1];
+                chairs[i] = new Chair(x, y);
+            }
 
 
         }

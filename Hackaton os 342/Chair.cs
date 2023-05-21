@@ -19,6 +19,17 @@ public class Chair
         Item = null;
         pictureBox = null;
     }
+    public Chair(int x, int y)
+    {
+        Dimension = new int[2];
+        Dimension[0] = x;
+        Dimension[1] = y;
+        IsTaken = false;
+        HasAnimal = false;
+        Id = -1; // Initialize the ChairId to -1 (or any default value)
+        Item = null;
+        pictureBox = null;
+    }
     public PictureBox getPic()
     {
         return pictureBox;
