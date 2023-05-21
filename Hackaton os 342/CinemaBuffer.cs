@@ -45,7 +45,8 @@ public class Buffer
                     availableChair.pictureBox = new PictureBox();
                     pictureBox = availableChair.pictureBox;
                     //pictureBox.Image = Image.FromFile("path/to/image.jpg");
-                    pictureBox.Image = new Bitmap(Path.Combine(Environment.CurrentDirectory, "pic.png")); // Set the image for the PictureBox
+                    String path = "D:\\My documents\\university\\year 2 semester 2\\Operating System\\homeworks\\hw2\\Hackaton os 342\\images_folder\\monkey.png";
+                    pictureBox.Image = new Bitmap(path); // Set the image for the PictureBox
                     pictureBox.Location = new Point(availableChair.Dimension[0], availableChair.Dimension[1]); // Set the location (top-left coordinates) where you want the PictureBox to appear on the form
                     // TO DO : add to ponit the strat coordinated of the big image.
                     pictureBox.Size = new Size(36, 40);                // Set the size of the PictureBox
