@@ -1,16 +1,26 @@
 using System.Windows.Forms;
+using Hackaton_os_342;
 
 namespace Hackaton_os_342
 {
     public partial class Form1 : Form
     {
         private UserControl1 userControl1;
-        private CinemaBuffer buffer;
+        private readonly Buffer buffer; // Declare a private instance of CinemaBuffer
+        private readonly Producer producer;
+        private readonly Consumer consumer;
+
 
         public Form1()
         {
             InitializeComponent();
             Form1_Settings2_Load();
+
+            Chair[] chairDimensions = new Chair[90];
+            buffer = new Buffer(chairDimensions);
+            producer = new Producer(buffer);
+            consumer = new Consumer(buffer);
+
         }
 
         private void Form1_Settings2_Load()

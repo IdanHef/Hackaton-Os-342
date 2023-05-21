@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Threading;
+
 public class Buffer
 {
     private readonly List<Chair> chairs;
@@ -18,7 +20,7 @@ public class Buffer
 
     public Buffer(Chair[] chairDimensions)
     {
-        chairs = new List<Chair>();
+        chairs = new List<Chair>(chairDimensions);
         lockObject = new object();
         capacity = chairDimensions.Length;
         waitingCount = 0;
@@ -56,13 +58,28 @@ public class Buffer
         }
     }
 
-    public void AddWaitingTime(double waitingTime)
+    public int GetChairIndex(Chair chair)
     {
         lock (lockObject)
         {
-            waitingCount++;
-            AverageWaitingTime = (AverageWaitingTime * (waitingCount - 1) + waitingTime) / waitingCount;
+            return chairs.IndexOf(chair);
         }
     }
-}
 
+    public Chair GetOccupiedChair()
+    {
+        lock (lockObject)
+        {
+            Chair occupiedChair = chairs.FirstOrDefault(chair => chair.IsTaken && chair.HasAnimal);
+
+            if (occupiedChair != null)
+            {
+                return occupiedChair;
+            }
+
+            return null;
+        }
+    }
+    // asdf
+
+}

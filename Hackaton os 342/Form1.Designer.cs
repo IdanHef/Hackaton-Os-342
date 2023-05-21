@@ -159,5 +159,6 @@
         private Label consumersRateLabel;
         private TextBox consumersRateTextBox;
         private Button startButton;
+
     }
 }
