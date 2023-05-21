@@ -87,9 +87,9 @@
             this.producersRateLabel.AutoSize = true;
             this.producersRateLabel.Location = new System.Drawing.Point(145, 222);
             this.producersRateLabel.Name = "producersRateLabel";
-            this.producersRateLabel.Size = new System.Drawing.Size(132, 20);
+            this.producersRateLabel.Size = new System.Drawing.Size(113, 20);
             this.producersRateLabel.TabIndex = 5;
-            this.producersRateLabel.Text = "Producers Number";
+            this.producersRateLabel.Text = "Producers Ratio";
             // 
             // producersRateTextBox
             // 
@@ -103,9 +103,9 @@
             this.consumersRateLabel.AutoSize = true;
             this.consumersRateLabel.Location = new System.Drawing.Point(145, 271);
             this.consumersRateLabel.Name = "consumersRateLabel";
-            this.consumersRateLabel.Size = new System.Drawing.Size(133, 20);
+            this.consumersRateLabel.Size = new System.Drawing.Size(114, 20);
             this.consumersRateLabel.TabIndex = 7;
-            this.consumersRateLabel.Text = "Consumer Number";
+            this.consumersRateLabel.Text = "Consumer Ratio";
             // 
             // consumersRateTextBox
             // 
@@ -123,7 +123,7 @@
             this.startButton.TabIndex = 9;
             this.startButton.Text = "Start";
             this.startButton.UseVisualStyleBackColor = true;
-            this.startButton.Click += new System.EventHandler(this.startButton_Click_1);
+            this.startButton.Click += new System.EventHandler(this.startButton_Click);
             // 
             // Form1
             // 
@@ -142,6 +142,7 @@
             this.Controls.Add(this.titleLabel);
             this.Name = "Form1";
             this.Text = "Form1";
+            //this.Load += new System.EventHandler(this.Form1_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

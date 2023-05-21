@@ -1,37 +1,15 @@
+using System.Windows.Forms;
+
 namespace Hackaton_os_342
 {
     public partial class Form1 : Form
     {
+        private UserControl1 userControl1;
+
         public Form1()
         {
             InitializeComponent();
             Form1_Settings2_Load();
-        }
-        private void Form1_Settings_Load()
-        {
-            // Set the form properties
-            BackColor = Color.Black;
-            ForeColor = Color.Red;
-            Font = new Font("Arial", 12, FontStyle.Bold);
-
-            // Set the control properties
-            titleLabel.ForeColor = Color.Red;
-            numberOfProducersLabel.ForeColor = Color.Red;
-            numberOfConsumersLabel.ForeColor = Color.Red;
-            producersRateLabel.ForeColor = Color.Red;
-            consumersRateLabel.ForeColor = Color.Red;
-
-            numberOfProducersTextBox.BackColor = Color.Black;
-            numberOfProducersTextBox.ForeColor = Color.Red;
-            numberOfConsumersTextBox.BackColor = Color.Black;
-            numberOfConsumersTextBox.ForeColor = Color.Red;
-            producersRateTextBox.BackColor = Color.Black;
-            producersRateTextBox.ForeColor = Color.Red;
-            consumersRateTextBox.BackColor = Color.Black;
-            consumersRateTextBox.ForeColor = Color.Red;
-
-            startButton.BackColor = Color.Red;
-            startButton.ForeColor = Color.Black;
         }
 
         private void Form1_Settings2_Load()
@@ -75,23 +53,43 @@ namespace Hackaton_os_342
 
         }
 
-        private void startButton_Click_1(object sender, EventArgs e)
+
+        private void startButton_Click(object sender, EventArgs e)
         {
             // Retrieve the values from the integer text boxes
+
             int numberOfProducers = int.Parse(numberOfProducersTextBox.Text);
             int numberOfConsumers = int.Parse(numberOfConsumersTextBox.Text);
             int producersRate = int.Parse(producersRateTextBox.Text);
             int consumersRate = int.Parse(consumersRateTextBox.Text);
 
-            // TODO: Start the producer-consumer logic with the provided values
-            // Implement your logic here
+            int[] data2 = new int[4];
+            data2[0] = numberOfProducers;
+            data2[1] = numberOfConsumers;
+            data2[2] = producersRate;
+            data2[3] = consumersRate;
 
-            // For example, you can display a message box with the values for testing
-            string message = $"Number of Producers: {numberOfProducers}\n" +
-                             $"Number of Consumers: {numberOfConsumers}\n" +
-                             $"Producers Rate: {producersRate}\n" +
-                             $"Consumers Rate: {consumersRate}";
-            MessageBox.Show(message, "Start Button Clicked");
+            // Create an instance of UserControl1
+            userControl1 = new UserControl1(data2);
+
+            // Set the position and size of the user control
+            userControl1.Location = new Point(0, 0);    
+            userControl1.Size = this.ClientSize;
+
+            // Add UserControl1 to the form's controls
+            this.Controls.Add(userControl1);
+
+            // Hide the current form
+            this.Visible = false;
+            // Hide the current form
+            this.Hide();
+
+
+            // Show the user control
+            userControl1.Visible = true;
+            // Show UserControl1 as a separate form
+            userControl1.Show();
+
 
         }
     }

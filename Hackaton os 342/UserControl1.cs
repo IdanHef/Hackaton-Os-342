@@ -12,7 +12,7 @@ namespace Hackaton_os_342
 {
     public partial class UserControl1 : UserControl
     {
-        public UserControl1()
+        public UserControl1(int[] data)
         {
             InitializeComponent();
         }
@@ -58,6 +58,11 @@ namespace Hackaton_os_342
         }
 
         private void pictureBox1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void UserControl1_Load_1(object sender, EventArgs e)
         {
 
         }
