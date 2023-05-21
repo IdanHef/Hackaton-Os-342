@@ -10,6 +10,14 @@ namespace Hackaton_os_342
         private readonly Producer producer;
         private readonly Consumer consumer;
 
+        private Thread producerThread;
+        private Thread consumerThread;
+        private int producerCount;
+        private int consumerCount;
+        private int producerRatio;
+        private int consumerRatio;
+
+
 
         public Form1()
         {
@@ -74,11 +82,11 @@ namespace Hackaton_os_342
             int producersRate = int.Parse(producersRateTextBox.Text);
             int consumersRate = int.Parse(consumersRateTextBox.Text);
 
-            int[] data2 = new int[4];
-            data2[0] = numberOfProducers;
-            data2[1] = numberOfConsumers;
-            data2[2] = producersRate;
-            data2[3] = consumersRate;
+            producerCount = numberOfProducers;
+            consumerCount = numberOfConsumers;
+            producerRatio = producersRate;
+            consumerRatio = consumersRate;
+
 
             // Create an instance of UserControl1
             userControl1 = new UserControl1();
@@ -101,6 +109,7 @@ namespace Hackaton_os_342
             userControl1.Show();
 
             SetAllControlsVisibility_ver2();
+            //StartProducerConsumerCommunication();
         }
 
         private void SetAllControlsVisibility(Control control, bool isVisible)
@@ -131,6 +140,13 @@ namespace Hackaton_os_342
             this.consumersRateTextBox.Visible = false;
             this.startButton.Visible = false;
         }
+
+        private void StartProducerConsumerCommunication()
+        {
+            producerThread = new Thread(() => producer.ProduceItems(producerCount));
+            consumerThread = new Thread(() => consumer.ConsumeItems(consumerCount));
+        }
+        
 
     }
 }
