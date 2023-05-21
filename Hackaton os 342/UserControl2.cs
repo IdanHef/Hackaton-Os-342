@@ -1,17 +1,29 @@
+﻿using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Data;
+using System.Drawing;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace Hackaton_os_342
 {
-    public partial class Form1 : Form
+    public partial class UserControl2 : UserControl
     {
-        private UserControl1 userControl1;
-
-        public Form1()
+        UserControl1 userControl1;
+        public UserControl2()
         {
             InitializeComponent();
             Form1_Settings2_Load();
+            buildUserControl_ver1();
         }
 
+        private void UserControl2_Load(object sender, EventArgs e)
+        {
+
+        }
         private void Form1_Settings2_Load()
         {
             // Set the form properties
@@ -43,18 +55,7 @@ namespace Hackaton_os_342
         }
 
 
-        private void label1_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void textBox1_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-
-        private void startButton_Click(object sender, EventArgs e)
+        private void startButton_Click_1(object sender, EventArgs e)
         {
             // Retrieve the values from the integer text boxes
 
@@ -69,57 +70,16 @@ namespace Hackaton_os_342
             data2[2] = producersRate;
             data2[3] = consumersRate;
 
-            // Create an instance of UserControl1
+            this.Visible = false;
+
+        }
+
+        public void buildUserControl_ver1()
+        {
             userControl1 = new UserControl1();
-
-            // Set the position and size of the user control
-            userControl1.Location = new Point(0, 0);    
-            userControl1.Size = this.ClientSize;
-
-            // Add UserControl1 to the form's controls
-            this.Controls.Add(userControl1);
-
-            // Set all controls within the user control to invisible
-            //SetAllControlsVisibility(this, false);
-
-
-
-            // Show the user control
-            userControl1.Visible = true;
-            // Show UserControl1 as a separate form
-            userControl1.Show();
-
-            SetAllControlsVisibility_ver2();
+            userControl1.Dock = DockStyle.Fill;
+            Controls.Add(userControl1);
+            userControl1.Visible = false;
         }
-
-        private void SetAllControlsVisibility(Control control, bool isVisible)
-        {
-            // Set the visibility of the current control
-            control.Visible = isVisible;
-
-            // Recursively iterate over the child controls
-            foreach (Control childControl in control.Controls)
-            {
-                if(childControl is not UserControl1)
-                {
-                    SetAllControlsVisibility(childControl, isVisible);
-                }
-            }
-        }
-
-        private void SetAllControlsVisibility_ver2()
-        {
-            this.titleLabel.Visible = false;
-            this.numberOfProducersLabel.Visible = false;
-            this.numberOfProducersTextBox.Visible = false;
-            this.numberOfConsumersLabel.Visible = false;
-            this.numberOfConsumersTextBox.Visible = false;
-            this.producersRateLabel.Visible = false;
-            this.producersRateTextBox.Visible = false;
-            this.consumersRateLabel.Visible = false;
-            this.consumersRateTextBox.Visible = false;
-            this.startButton.Visible = false;
-        }
-
     }
 }
