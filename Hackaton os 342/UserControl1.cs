@@ -51,7 +51,7 @@ namespace Hackaton_os_342
             }
             Thread myThread = new Thread(StartProducerConsumerCommunication);
 
-        }//helllllllo
+        }//helllllllo12312312312312312
 
         private void UserControl1_Load(object sender, EventArgs e)
         {
