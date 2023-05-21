@@ -5,6 +5,7 @@ namespace Hackaton_os_342
     public partial class Form1 : Form
     {
         private UserControl1 userControl1;
+        private CinemaBuffer buffer;
 
         public Form1()
         {
