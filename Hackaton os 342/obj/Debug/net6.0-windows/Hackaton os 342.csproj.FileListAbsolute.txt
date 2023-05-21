@@ -1,0 +1,8 @@
+D:\My documents\university\year 2 semester 2\Operating System\homeworks\hw2\Hackaton os 342\Hackaton os 342\obj\Debug\net6.0-windows\Hackaton os 342.csproj.AssemblyReference.cache
+D:\My documents\university\year 2 semester 2\Operating System\homeworks\hw2\Hackaton os 342\Hackaton os 342\obj\Debug\net6.0-windows\Hackaton_os_342.Form1.resources
+D:\My documents\university\year 2 semester 2\Operating System\homeworks\hw2\Hackaton os 342\Hackaton os 342\obj\Debug\net6.0-windows\Hackaton_os_342.UserControl1.resources
+D:\My documents\university\year 2 semester 2\Operating System\homeworks\hw2\Hackaton os 342\Hackaton os 342\obj\Debug\net6.0-windows\Hackaton os 342.csproj.GenerateResource.cache
+D:\My documents\university\year 2 semester 2\Operating System\homeworks\hw2\Hackaton os 342\Hackaton os 342\obj\Debug\net6.0-windows\Hackaton os 342.GeneratedMSBuildEditorConfig.editorconfig
+D:\My documents\university\year 2 semester 2\Operating System\homeworks\hw2\Hackaton os 342\Hackaton os 342\obj\Debug\net6.0-windows\Hackaton os 342.AssemblyInfoInputs.cache
+D:\My documents\university\year 2 semester 2\Operating System\homeworks\hw2\Hackaton os 342\Hackaton os 342\obj\Debug\net6.0-windows\Hackaton os 342.AssemblyInfo.cs
+D:\My documents\university\year 2 semester 2\Operating System\homeworks\hw2\Hackaton os 342\Hackaton os 342\obj\Debug\net6.0-windows\Hackaton os 342.csproj.CoreCompileInputs.cache
