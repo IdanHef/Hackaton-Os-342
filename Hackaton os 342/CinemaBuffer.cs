@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading;
+using System.Windows.Forms;
+
 
 public class Buffer
 {
@@ -15,15 +17,18 @@ public class Buffer
     public int AvailableCount => capacity - OccupiedCount;
     public int WaitingCount => waitingCount;
 
+    private Form form1;
+
     public double PercentageCapacity => (double)OccupiedCount / capacity * 100;
     public double AverageWaitingTime { get; private set; }
 
-    public Buffer(Chair[] chairDimensions)
+    public Buffer(Chair[] chairDimensions, Form form)
     {
         chairs = new List<Chair>(chairDimensions);
         lockObject = new object();
         capacity = chairDimensions.Length;
         waitingCount = 0;
+        form1 = form;
     }
 
     public Chair GetAvailableChair()
@@ -35,14 +40,17 @@ public class Buffer
             if (availableChair != null)
             {
                 availableChair.TakeChair();
-                PictureBox pictureBox = new PictureBox();
-                pictureBox.Image = // Set the image for the PictureBox
-                pictureBox.Location = // Set the location (top-left coordinates) where you want the PictureBox to appear on the form
-                pictureBox.Size = // Set the size of the PictureBox
-                //pictureBox.SizeMode = PictureBoxSizeMode.StretchImage; // Adjust the size mode according to your needs
+                PictureBox pictureBox = availableChair.pictureBox = new PictureBox();
+                //pictureBox.Image = Image.FromFile("path/to/image.jpg");
+                pictureBox.Image = new Bitmap(Path.Combine(Environment.CurrentDirectory, "pic.png")); // Set the image for the PictureBox
+                pictureBox.Location = new Point(availableChair.Dimension[0], availableChair.Dimension[1]); // Set the location (top-left coordinates) where you want the PictureBox to appear on the form
+                // TO DO : add to ponit the strat coordinated of the big image.
+                pictureBox.Size = new Size(40, 40);                // Set the size of the PictureBox
+                pictureBox.SizeMode = PictureBoxSizeMode.StretchImage;                // Adjust the size mode according to your needs
 
                 // Add the PictureBox to the form's Controls collection 
-                Hackaton_os_342.Form1.getControlers();
+                form1.Controls.Add(pictureBox);
+               
                 return availableChair;
             }
 
@@ -53,11 +61,12 @@ public class Buffer
     public void ReleaseChair(Chair chair)
     {
         lock (lockObject)
-        {
+        {   
+            chair.pictureBox.Visible = false;
             chair.ReleaseChair();
         }
     }
-
+    
     public int GetChairIndex(Chair chair)
     {
         lock (lockObject)

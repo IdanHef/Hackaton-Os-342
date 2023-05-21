@@ -25,9 +25,14 @@ namespace Hackaton_os_342
             InitializeComponent();
             Form1_Settings2_Load();
 
+<<<<<<< HEAD
             chairDimensions = new Chair[90];
 
             buffer = new Buffer(chairDimensions);
+=======
+            Chair[] chairDimensions = new Chair[90];
+            buffer = new Buffer(chairDimensions,this);
+>>>>>>> a153f0d0b83216853f387896bba2c5e4d7bef831
             producer = new Producer(buffer);
             consumer = new Consumer(buffer);
 

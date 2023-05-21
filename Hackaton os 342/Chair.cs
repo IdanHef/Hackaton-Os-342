@@ -8,13 +8,20 @@ public class Chair
     public int Id { get; set; }
     public string Item { get; set; }
 
+    public PictureBox pictureBox;
+
     public Chair(int[] dimension)
-    {
+    {   
         Dimension = dimension;
         IsTaken = false;
         HasAnimal = false;
         Id = -1; // Initialize the ChairId to -1 (or any default value)
         Item = null;
+        pictureBox = null;
+    }
+    public PictureBox getPic()
+    {
+        return pictureBox;
     }
 
     public void AssignAnimal()
