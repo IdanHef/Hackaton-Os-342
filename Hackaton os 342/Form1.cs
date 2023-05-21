@@ -25,7 +25,7 @@ namespace Hackaton_os_342
             Form1_Settings2_Load();
 
             Chair[] chairDimensions = new Chair[90];
-            buffer = new Buffer(chairDimensions);
+            buffer = new Buffer(chairDimensions,this);
             producer = new Producer(buffer);
             consumer = new Consumer(buffer);
 
