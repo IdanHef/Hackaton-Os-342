@@ -17,4 +17,3 @@ D:\My documents\university\year 2 semester 2\Operating System\homeworks\hw2\Hack
 D:\My documents\university\year 2 semester 2\Operating System\homeworks\hw2\Hackaton os 342\Hackaton os 342\obj\Debug\net6.0-windows\Hackaton os 342.genruntimeconfig.cache
 D:\My documents\university\year 2 semester 2\Operating System\homeworks\hw2\Hackaton os 342\Hackaton os 342\obj\Debug\net6.0-windows\ref\Hackaton os 342.dll
 D:\My documents\university\year 2 semester 2\Operating System\homeworks\hw2\Hackaton os 342\Hackaton os 342\obj\Debug\net6.0-windows\Hackaton_os_342.Properties.Resources.resources
-D:\My documents\university\year 2 semester 2\Operating System\homeworks\hw2\Hackaton os 342\Hackaton os 342\obj\Debug\net6.0-windows\Hackaton_os_342.UserControl2.resources

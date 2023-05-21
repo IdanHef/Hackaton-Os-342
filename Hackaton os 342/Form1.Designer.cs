@@ -129,7 +129,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1119, 564);
+            this.ClientSize = new System.Drawing.Size(798, 438);
             this.Controls.Add(this.startButton);
             this.Controls.Add(this.consumersRateTextBox);
             this.Controls.Add(this.consumersRateLabel);

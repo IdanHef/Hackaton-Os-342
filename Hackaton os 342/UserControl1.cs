@@ -61,15 +61,5 @@ namespace Hackaton_os_342
         {
 
         }
-
-        private void UserControl1_Load_1(object sender, EventArgs e)
-        {
-
-        }
-
-        private void textBox1_TextChanged_1(object sender, EventArgs e)
-        {
-
-        }
     }
 }
