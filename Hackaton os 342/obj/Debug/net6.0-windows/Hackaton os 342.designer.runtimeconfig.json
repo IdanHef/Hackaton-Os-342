@@ -12,8 +12,8 @@
       }
     ],
     "additionalProbingPaths": [
-      "C:\\Users\\97255\\.dotnet\\store\\|arch|\\|tfm|",
-      "C:\\Users\\97255\\.nuget\\packages"
+      "C:\\Users\\physics\\.dotnet\\store\\|arch|\\|tfm|",
+      "C:\\Users\\physics\\.nuget\\packages"
     ],
     "configProperties": {
       "Microsoft.NETCore.DotNetHostPolicy.SetAppPaths": true

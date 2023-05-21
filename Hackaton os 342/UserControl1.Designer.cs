@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(UserControl1));
             label1 = new Label();
             label2 = new Label();
             label3 = new Label();
@@ -41,7 +42,9 @@
             label7 = new Label();
             label8 = new Label();
             button1 = new Button();
+            pictureBox2 = new PictureBox();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox2).BeginInit();
             SuspendLayout();
             // 
             // label1
@@ -78,9 +81,9 @@
             label4.AutoSize = true;
             label4.Location = new Point(159, 423);
             label4.Name = "label4";
-            label4.Size = new Size(154, 20);
+            label4.Size = new Size(158, 20);
             label4.TabIndex = 3;
-            label4.Text = "How many are wating";
+            label4.Text = "How many are waiting";
             label4.Click += label4_Click;
             // 
             // textBox1
@@ -118,9 +121,9 @@
             label5.AutoSize = true;
             label5.Location = new Point(159, 550);
             label5.Name = "label5";
-            label5.Size = new Size(145, 20);
+            label5.Size = new Size(149, 20);
             label5.TabIndex = 8;
-            label5.Text = "average wating time";
+            label5.Text = "average waiting time";
             // 
             // pictureBox1
             // 
@@ -160,10 +163,22 @@
             button1.Text = "Exit";
             button1.UseVisualStyleBackColor = true;
             // 
+            // pictureBox2
+            // 
+            pictureBox2.Image = (Image)resources.GetObject("pictureBox2.Image");
+            pictureBox2.Location = new Point(775, 49);
+            pictureBox2.Name = "pictureBox2";
+            pictureBox2.Size = new Size(481, 106);
+            pictureBox2.SizeMode = PictureBoxSizeMode.StretchImage;
+            pictureBox2.TabIndex = 14;
+            pictureBox2.TabStop = false;
+            pictureBox2.Click += pictureBox2_Click;
+            // 
             // UserControl1
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
+            Controls.Add(pictureBox2);
             Controls.Add(button1);
             Controls.Add(label8);
             Controls.Add(label7);
@@ -181,6 +196,7 @@
             Size = new Size(1412, 826);
             Load += UserControl1_Load;
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox2).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -200,6 +216,7 @@
         private Label label7;
         private Label label8;
         private Button button1;
+        private PictureBox pictureBox2;
     }
     //786
 }

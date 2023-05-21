@@ -61,5 +61,10 @@ namespace Hackaton_os_342
         {
 
         }
+
+        private void pictureBox2_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

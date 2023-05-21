@@ -1,41 +1,65 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Threading;
-
-public class CinemaBuffer
+public class Buffer
 {
-    private List<Chair> chairDimensions;
-    private List<int> occupiedChairs;
+    private readonly List<Chair> chairs;
+    private readonly object lockObject;
+    private readonly int capacity;
+    private int waitingCount;
 
-    public CinemaBuffer(List<Chair> chairDimensions)
-    {
-        this.chairDimensions = chairDimensions;
-        occupiedChairs = new List<int>(chairDimensions.Count);
-    }
+    public int Capacity => capacity;
+    public int OccupiedCount => chairs.Count(chair => chair.IsTaken);
+    public int AvailableCount => capacity - OccupiedCount;
+    public int WaitingCount => waitingCount;
 
-    public int GetChair()
+    public double PercentageCapacity => (double)OccupiedCount / capacity * 100;
+    public double AverageWaitingTime { get; private set; }
+
+    public Buffer(Chair[] chairDimensions)
     {
-        lock (occupiedChairs)
+        chairs = new List<Chair>();
+        lockObject = new object();
+        capacity = chairDimensions.Length;
+        waitingCount = 0;
+
+        foreach (Chair chair in chairDimensions)
         {
-            while (occupiedChairs.Count == chairDimensions.Count)
-            {
-                Monitor.Wait(occupiedChairs);
-            }
-
-            // Find the index of the first unoccupied chair
-            int chairIndex = occupiedChairs.IndexOf(0);
-            occupiedChairs[chairIndex] = 1; // Mark the chair as occupied
-
-            return chairIndex;
+            chairs.Add(new Chair());
         }
     }
 
-    public void ReleaseChair(int chair)
+    public Chair GetAvailableChair()
     {
-        lock (occupiedChairs)
+        lock (lockObject)
         {
-            occupiedChairs[chair] = 0; // Mark the chair as unoccupied
-            Monitor.Pulse(occupiedChairs);
+            Chair availableChair = chairs.FirstOrDefault(chair => !chair.IsTaken);
+
+            if (availableChair != null)
+            {
+                availableChair.TakeChair();
+                return availableChair;
+            }
+
+            return null;
+        }
+    }
+
+    public void ReleaseChair(Chair chair)
+    {
+        lock (lockObject)
+        {
+            chair.ReleaseChair();
+        }
+    }
+
+    public void AddWaitingTime(double waitingTime)
+    {
+        lock (lockObject)
+        {
+            waitingCount++;
+            AverageWaitingTime = (AverageWaitingTime * (waitingCount - 1) + waitingTime) / waitingCount;
         }
     }
 }
+
