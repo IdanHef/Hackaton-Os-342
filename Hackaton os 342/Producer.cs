@@ -11,7 +11,8 @@ namespace Hackaton_os_342
         private readonly Buffer buffer;
 
         public Producer(Buffer buffer)
-        {
+        {   
+            //Thread.Sleep(1000);
             this.buffer = buffer;
         }
 

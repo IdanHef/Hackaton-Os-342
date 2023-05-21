@@ -1,6 +1,8 @@
-﻿using System;
+﻿using Hackaton_os_342;
+using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security.Claims;
 using System.Threading;
 using System.Windows.Forms;
 
@@ -17,18 +19,18 @@ public class Buffer
     public int AvailableCount => capacity - OccupiedCount;
     public int WaitingCount => waitingCount;
 
-    private Form form1;
+    private UserControl1 userControl;
 
     public double PercentageCapacity => (double)OccupiedCount / capacity * 100;
     public double AverageWaitingTime { get; private set; }
 
-    public Buffer(Chair[] chairDimensions, Form form)
+    public Buffer(Chair[] chairDimensions, UserControl1 userControl1)
     {
         chairs = new List<Chair>(chairDimensions);
         lockObject = new object();
         capacity = chairDimensions.Length;
         waitingCount = 0;
-        form1 = form;
+        userControl = userControl1;
     }
 
     public Chair GetAvailableChair()
@@ -44,21 +46,23 @@ public class Buffer
                 if (pictureBox == null) {
                     availableChair.pictureBox = new PictureBox();
                     pictureBox = availableChair.pictureBox;
-                    //pictureBox.Image = Image.FromFile("path/to/image.jpg");
-                    pictureBox.Image = new Bitmap(Path.Combine(Environment.CurrentDirectory, "pic.png")); // Set the image for the PictureBox
+                    pictureBox.Image = Image.FromFile("C:\\Users\\physics\\Documents\\david\\uni\\year_2_semester_2\\Hackaton-Os-342\\images_folder\\monkey.png");
+                    //pictureBox.Image = new Bitmap(Path.Combine(Environment.CurrentDirectory, "pic.png")); // Set the image for the PictureBox
                     pictureBox.Location = new Point(availableChair.Dimension[0], availableChair.Dimension[1]); // Set the location (top-left coordinates) where you want the PictureBox to appear on the form
                     // TO DO : add to ponit the strat coordinated of the big image.
                     pictureBox.Size = new Size(36, 40);                // Set the size of the PictureBox
                     pictureBox.SizeMode = PictureBoxSizeMode.StretchImage;                // Adjust the size mode according to your needs
                 }
                 else
-                {   
-                    availableChair.pictureBox.Visible = true;
+                {
+                    userControl.Invoke((MethodInvoker)(() =>
+                    {
+                        availableChair.pictureBox.Visible = true;
+
+                    }));
                     //give new image, random func that givens random image
                 }
-                // Add the PictureBox to the form's Controls collection 
-                form1.Controls.Add(pictureBox);
-               
+                // Add the PictureBox to the form's Controls collection                
                 return availableChair;
             }
 

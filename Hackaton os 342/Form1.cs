@@ -1,3 +1,4 @@
+using System;
 using System.Windows.Forms;
 using Hackaton_os_342;
 
@@ -7,11 +8,7 @@ namespace Hackaton_os_342
     {
         private UserControl1 userControl1;
         private readonly Buffer buffer; // Declare a private instance of CinemaBuffer
-        private readonly Producer producer;
-        private readonly Consumer consumer;
 
-        private Thread producerThread;
-        private Thread consumerThread;
         private int producerCount;
         private int consumerCount;
         private int producerRatio;
@@ -24,12 +21,6 @@ namespace Hackaton_os_342
         {
             InitializeComponent();
             Form1_Settings2_Load();
-
-            chairs = new Chair[90];
-            initializeChairs();
-            buffer = new Buffer(chairs, this);
-            producer = new Producer(buffer);
-            consumer = new Consumer(buffer);
 
 
         }
@@ -89,10 +80,10 @@ namespace Hackaton_os_342
             consumerCount = numberOfConsumers;
             producerRatio = producersRate;
             consumerRatio = consumersRate;
-
+            int[] data = { producerCount, consumerCount, producerRatio, consumerRatio };
 
             // Create an instance of UserControl1
-            userControl1 = new UserControl1();
+            userControl1 = new UserControl1(data);
 
             // Set the position and size of the user control
             userControl1.Location = new Point(0, 0);    
@@ -112,7 +103,6 @@ namespace Hackaton_os_342
             userControl1.Show();
 
             SetAllControlsVisibility_ver2();
-            StartProducerConsumerCommunication();
         }
 
         private void SetAllControlsVisibility(Control control, bool isVisible)
@@ -144,127 +134,7 @@ namespace Hackaton_os_342
             this.startButton.Visible = false;
         }
 
-        private void StartProducerConsumerCommunication()
-        {
-            producerThread = new Thread(() => producer.ProduceItems(producerCount));
-            consumerThread = new Thread(() => consumer.ConsumeItems(consumerCount));
-            // Start the producer and consumer threads
-            producerThread.Start();
-            consumerThread.Start();
-
-            // Optionally, you can join the threads to wait for their completion
-            producerThread.Join();
-            consumerThread.Join();
-
-            // You can also update the UI or display status messages here
-            // to indicate that the producer and consumer actions have started.
-
-        }
+      
         
-        private void initializeChairs()
-        {
-            int[,] coordinates = new int[,]
-{
-    { 130, 629 },
-    { 131, 518 },
-    { 131, 574 },
-    { 149, 295 },
-    { 149, 351 },
-    { 149, 406 },
-    { 149, 461 },
-    { 167, 239 },
-    { 168, 518 },
-    { 168, 574 },
-    { 168, 628 },
-    { 187, 351 },
-    { 187, 406 },
-    { 187, 461 },
-    { 188, 295 },
-    { 205, 239 },
-    { 206, 518 },
-    { 206, 574 },
-    { 206, 629 },
-    { 224, 351 },
-    { 224, 461 },
-    { 225, 295 },
-    { 225, 406 },
-    { 242, 239 },
-    { 242, 628 },
-    { 243, 517 },
-    { 243, 574 },
-    { 262, 295 },
-    { 262, 351 },
-    { 262, 406 },
-    { 262, 461 },
-    { 280, 239 },
-    { 281, 518 },
-    { 281, 574 },
-    { 281, 629 },
-    { 300, 295 },
-    { 300, 351 },
-    { 300, 406 },
-    { 300, 461 },
-    { 317, 629 },
-    { 318, 239 },
-    { 319, 517 },
-    { 320, 573 },
-    { 336, 351 },
-    { 337, 295 },
-    { 337, 406 },
-    { 338, 461 },
-    { 355, 239 },
-    { 355, 628 },
-    { 356, 573 },
-    { 357, 517 },
-    { 374, 351 },
-    { 375, 295 },
-    { 375, 406 },
-    { 375, 461 },
-    { 392, 239 },
-    { 393, 628 },
-    { 394, 517 },
-    { 394, 572 },
-    { 412, 295 },
-    { 412, 351 },
-    { 412, 406 },
-    { 413, 461 },
-    { 430, 239 },
-    { 430, 516 },
-    { 431, 572 },
-    { 431, 628 },
-    { 449, 351 },
-    { 450, 295 },
-    { 450, 406 },
-    { 450, 461 },
-    { 467, 239 },
-    { 467, 629 },
-    { 468, 572 },
-    { 469, 517 },
-    { 486, 351 },
-    { 487, 295 },
-    { 487, 406 },
-    { 487, 461 },
-    { 505, 239 },
-    { 505, 517 },
-    { 505, 573 },
-    { 505, 628 },
-    { 524, 295 },
-    { 524, 351 },
-    { 524, 461 },
-    { 525, 406 },
-    { 541, 628 },
-    { 542, 517 },
-    { 543, 572 }
-};
-
-            for (int i = 0; i < 90; i++)
-            {
-                int x = coordinates[i, 0];
-                int y = coordinates[i, 1];
-                chairs[i] = new Chair(x, y);
-            }
-
-
-        }
     }
 }

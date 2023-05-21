@@ -29,7 +29,6 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(UserControl1));
-
             label1 = new Label();
             label2 = new Label();
             label3 = new Label();
@@ -77,21 +76,21 @@
             // 
             // label4
             // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(159, 423);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(158, 20);
-            this.label4.TabIndex = 3;
-            this.label4.Text = "How many are waiting";
+            label4.AutoSize = true;
+            label4.Location = new Point(159, 423);
+            label4.Name = "label4";
+            label4.Size = new Size(158, 20);
+            label4.TabIndex = 3;
+            label4.Text = "How many are waiting";
             // 
             // label5
             // 
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(159, 550);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(149, 20);
-            this.label5.TabIndex = 8;
-            this.label5.Text = "average waiting time";
+            label5.AutoSize = true;
+            label5.Location = new Point(159, 550);
+            label5.Name = "label5";
+            label5.Size = new Size(149, 20);
+            label5.TabIndex = 8;
+            label5.Text = "average waiting time";
             // 
             // pictureBox1
             // 
@@ -101,6 +100,7 @@
             pictureBox1.Size = new Size(698, 699);
             pictureBox1.TabIndex = 9;
             pictureBox1.TabStop = false;
+            pictureBox1.Click += pictureBox1_Click_1;
             // 
             // label7
             // 
@@ -130,13 +130,13 @@
             // 
             // pictureBox2
             // 
-            this.pictureBox2.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox2.Image")));
-            this.pictureBox2.Location = new System.Drawing.Point(775, 49);
-            this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(481, 106);
-            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox2.TabIndex = 14;
-            this.pictureBox2.TabStop = false;
+            pictureBox2.Image = (Image)resources.GetObject("pictureBox2.Image");
+            pictureBox2.Location = new Point(775, 49);
+            pictureBox2.Name = "pictureBox2";
+            pictureBox2.Size = new Size(481, 106);
+            pictureBox2.SizeMode = PictureBoxSizeMode.StretchImage;
+            pictureBox2.TabIndex = 14;
+            pictureBox2.TabStop = false;
             // 
             // label6
             // 
