@@ -58,7 +58,7 @@ public class Buffer
                     //give new image, random func that givens random image
                 }
                 // Add the PictureBox to the form's Controls collection 
-                form1.Controls.Add(pictureBox);
+                //form1.Controls.Add(pictureBox);
                
                 return availableChair;
             }

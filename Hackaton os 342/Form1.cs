@@ -92,7 +92,7 @@ namespace Hackaton_os_342
 
 
             // Create an instance of UserControl1
-            userControl1 = new UserControl1();
+            userControl1 = new UserControl1(chairs);
 
             // Set the position and size of the user control
             userControl1.Location = new Point(0, 0);    

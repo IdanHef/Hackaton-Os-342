@@ -12,7 +12,7 @@ namespace Hackaton_os_342
 {
     public partial class UserControl1 : UserControl
     {
-        public UserControl1()
+        public UserControl1(Chair[] chairs)
         {
             InitializeComponent();
         }
@@ -68,6 +68,21 @@ namespace Hackaton_os_342
         }
 
         private void label2_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void UserControl1_Load_1(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label2_Click_1(object sender, EventArgs e)
+        {
+
+        }
+
+        private void pictureBox1_Click_1(object sender, EventArgs e)
         {
 
         }
