@@ -266,5 +266,10 @@ namespace Hackaton_os_342
 
 
         }
+
+        private void initializeChairsPictureBoxes()
+        {
+
+        }
     }
 }
