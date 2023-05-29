@@ -52,7 +52,7 @@ namespace Hackaton_os_342
                 this.Controls.Add(pictureBox);
             }
             this.pictureBox1.SendToBack();
-            Thread myThread = new Thread(StartProducerConsumerCommunication);
+            StartProducerConsumerCommunication();
             //asdfasdfasdfadsfasdfasdf
 
         }
@@ -222,59 +222,63 @@ namespace Hackaton_os_342
 
 
         }
-        //private void StartProducerConsumerCommunication()
-        //{
-        //    Thread.Sleep(1000);
-        //    producerThread = new Thread(() => producer.ProduceItems(producerCount));
-        //    consumerThread = new Thread(() => consumer.ConsumeItems(consumerCount));
-        //    Start the producer and consumer threads
-        //    producerThread.Start();
-        //    consumerThread.Start();
-
-        //    Optionally, you can join the threads to wait for their completion
-
-        //   producerThread.Join();
-        //   consumerThread.Join();
-
-        //    You can also update the UI or display status messages here
-        //    to indicate that the producer and consumer actions have started.
-
-        //}
         private void StartProducerConsumerCommunication()
         {
-            // Create a timer with an interval based on the producer ratio
-            System.Threading.Timer producerTimer = new System.Threading.Timer(ProduceItemsTimerCallback, null, TimeSpan.Zero, TimeSpan.FromMilliseconds(producerRatio));
 
-            // Create a timer with an interval based on the consumer ratio
-            System.Threading.Timer consumerTimer = new System.Threading.Timer(ConsumeItemsTimerCallback, null, TimeSpan.Zero, TimeSpan.FromMilliseconds(consumerRatio));
-
-            // Optionally, you can update the UI or display status messages here
-            // to indicate that the producer and consumer actions have started.
-        }
-
-        private void ProduceItemsTimerCallback(object state)
-        {
-            // Create a new producer thread
-            Thread producerThread = new Thread(() => producer.ProduceItems(producerCount));
-
-            // Start the producer thread
-            producerThread.Start();
-
-            // Optionally, you can join the producer thread to wait for its completion
-            producerThread.Join();
-        }
-
-        private void ConsumeItemsTimerCallback(object state)
-        {
-            // Create a new consumer thread
-            Thread consumerThread = new Thread(() => consumer.ConsumeItems(consumerCount));
-
-            // Start the consumer thread
+            //producerThread = new Thread(() => producer.ProduceItems(producerCount));
+            consumerThread = new Thread(() => consumer.ConsumeItems(consumerCount));
+            //Start the producer and consumer threads
+            //producerThread.Start();
             consumerThread.Start();
 
-            // Optionally, you can join the consumer thread to wait for its completion
+            //Optionally, you can join the threads to wait for their completion
+
+            //producerThread.Join();
             consumerThread.Join();
+
+            Console.WriteLine("Producer and Consumer operations completed.");
+
+
+            //You can also update the UI or display status messages here
+            //to indicate that the producer and consumer actions have started.
+
         }
+
+        //private void StartProducerConsumerCommunication()
+        //{
+        //    // Create a timer with an interval based on the producer ratio
+        //    System.Threading.Timer producerTimer = new System.Threading.Timer(ProduceItemsTimerCallback, null, TimeSpan.Zero, TimeSpan.FromMilliseconds(producerRatio));
+
+        //    // Create a timer with an interval based on the consumer ratio
+        //    System.Threading.Timer consumerTimer = new System.Threading.Timer(ConsumeItemsTimerCallback, null, TimeSpan.Zero, TimeSpan.FromMilliseconds(consumerRatio));
+
+        //    // Optionally, you can update the UI or display status messages here
+        //    // to indicate that the producer and consumer actions have started.
+        //}
+
+        //private void ProduceItemsTimerCallback(object state)
+        //{
+        //    // Create a new producer thread
+        //    Thread producerThread = new Thread(() => producer.ProduceItems(producerCount));
+
+        //    // Start the producer thread
+        //    producerThread.Start();
+
+        //    // Optionally, you can join the producer thread to wait for its completion
+        //    producerThread.Join();
+        //}
+
+        //private void ConsumeItemsTimerCallback(object state)
+        //{
+        //    // Create a new consumer thread
+        //    Thread consumerThread = new Thread(() => consumer.ConsumeItems(consumerCount));
+
+        //    // Start the consumer thread
+        //    consumerThread.Start();
+
+        //    // Optionally, you can join the consumer thread to wait for its completion
+        //    consumerThread.Join();
+        //}
 
 
         private void pictureBox1_Click_2(object sender, EventArgs e)

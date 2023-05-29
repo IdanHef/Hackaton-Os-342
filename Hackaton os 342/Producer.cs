@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 
 namespace Hackaton_os_342
@@ -9,11 +10,12 @@ namespace Hackaton_os_342
     internal class Producer
     {
         private readonly Buffer buffer;
+        private readonly Random random;
 
         public Producer(Buffer buffer)
-        {   
-            //Thread.Sleep(1000);
+        {
             this.buffer = buffer;
+            random = new Random();
         }
 
         public void ProduceItems(int numberOfItems)
