@@ -100,11 +100,12 @@
             this.pictureBox1.Size = new System.Drawing.Size(698, 699);
             this.pictureBox1.TabIndex = 9;
             this.pictureBox1.TabStop = false;
+            this.pictureBox1.Click += new System.EventHandler(this.pictureBox1_Click_2);
             // 
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(607, 9);
+            this.label7.Location = new System.Drawing.Point(220, 32);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(110, 20);
             this.label7.TabIndex = 11;
@@ -120,12 +121,13 @@
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(938, 751);
+            this.button1.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.button1.Location = new System.Drawing.Point(938, 737);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(94, 29);
             this.button1.TabIndex = 13;
             this.button1.Text = "Exit";
-            this.button1.UseVisualStyleBackColor = true;
+            this.button1.UseVisualStyleBackColor = false;
             // 
             // pictureBox2
             // 

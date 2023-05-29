@@ -39,8 +39,8 @@ namespace Hackaton_os_342
             {
                 Chair chair = chairs[i];
                 PictureBox pictureBox = new PictureBox();
-                pictureBox.Image = Image.FromFile("D:\\My documents\\university\\year 2 semester 2\\Operating System\\homeworks\\hw2\\Hackaton os 342\\images_folder\\monkey.png");
-                //pictureBox.Image = Image.FromFile("C:\\Users\\physics\\Documents\\david\\uni\\year_2_semester_2\\Hackaton-Os-342\\images_folder\\monkey.png");
+                //pictureBox.Image = Image.FromFile("D:\\My documents\\university\\year 2 semester 2\\Operating System\\homeworks\\hw2\\Hackaton os 342\\images_folder\\monkey.png");
+                pictureBox.Image = Image.FromFile("C:\\Users\\physics\\Documents\\david\\uni\\year_2_semester_2\\Hackaton-Os-342\\images_folder\\monkey.png");
                 //pictureBox.Image = new Bitmap(Path.Combine(Environment.CurrentDirectory, "pic.png")); // Set the image for the PictureBox
 
                 pictureBox.Location = new Point(chair.Dimension[0] +600, -10 + chair.Dimension[1]); // Set the location (top-left coordinates) where you want the PictureBox to appear on the form
