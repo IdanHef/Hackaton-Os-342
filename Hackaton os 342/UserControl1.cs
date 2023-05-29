@@ -39,20 +39,24 @@ namespace Hackaton_os_342
             {
                 Chair chair = chairs[i];
                 PictureBox pictureBox = new PictureBox();
-                pictureBox.Image = Image.FromFile("C:\\Users\\physics\\Documents\\david\\uni\\year_2_semester_2\\Hackaton-Os-342\\images_folder\\monkey.png");
+                pictureBox.Image = Image.FromFile("D:\\My documents\\university\\year 2 semester 2\\Operating System\\homeworks\\hw2\\Hackaton os 342\\images_folder\\monkey.png");
+                //pictureBox.Image = Image.FromFile("C:\\Users\\physics\\Documents\\david\\uni\\year_2_semester_2\\Hackaton-Os-342\\images_folder\\monkey.png");
                 //pictureBox.Image = new Bitmap(Path.Combine(Environment.CurrentDirectory, "pic.png")); // Set the image for the PictureBox
-                pictureBox.Location = new Point(chair.Dimension[0] +500,  chair.Dimension[1] + 5); // Set the location (top-left coordinates) where you want the PictureBox to appear on the form
+
+                pictureBox.Location = new Point(chair.Dimension[0] +600, -10 + chair.Dimension[1]); // Set the location (top-left coordinates) where you want the PictureBox to appear on the form
                 // TO DO : add to ponit the strat coordinated of the big image.
                 pictureBox.Size = new Size(36, 40);                // Set the size of the PictureBox
-                pictureBox.SizeMode = PictureBoxSizeMode.StretchImage;
-                pictureBox.Visible = false;
+                pictureBox.SizeMode = PictureBoxSizeMode.CenterImage;
+                pictureBox.Visible = true;
                 chair.pictureBox = pictureBox;
+                
                 this.Controls.Add(pictureBox);
                 pictureBox.BringToFront();
             }
+            this.pictureBox1.SendToBack();
             Thread myThread = new Thread(StartProducerConsumerCommunication);
 
-        }//helllllllo12312312312312312
+        }
 
         private void UserControl1_Load(object sender, EventArgs e)
         {
