@@ -53,6 +53,7 @@ namespace Hackaton_os_342
             }
             this.pictureBox1.SendToBack();
             Thread myThread = new Thread(StartProducerConsumerCommunication);
+            //asdfasdfasdfadsfasdfasdf
 
         }
 
