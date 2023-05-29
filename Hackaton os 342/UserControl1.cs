@@ -45,7 +45,7 @@ namespace Hackaton_os_342
                 pictureBox.Location = new Point(chair.Dimension[0] +600, -10 + chair.Dimension[1]); // Set the location (top-left coordinates) where you want the PictureBox to appear on the form
                 // TO DO : add to ponit the strat coordinated of the big image.
                 pictureBox.Size = new Size(36, 40);                // Set the size of the PictureBox
-                pictureBox.SizeMode = PictureBoxSizeMode.CenterImage;
+                pictureBox.SizeMode = PictureBoxSizeMode.StretchImage;
                 pictureBox.Visible = true;
                 chair.pictureBox = pictureBox;
                 
@@ -275,5 +275,10 @@ namespace Hackaton_os_342
             consumerThread.Join();
         }
 
+
+        private void pictureBox1_Click_2(object sender, EventArgs e)
+        {
+
+        }
     }
 }
