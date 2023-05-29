@@ -41,13 +41,14 @@ namespace Hackaton_os_342
                 PictureBox pictureBox = new PictureBox();
                 pictureBox.Image = Image.FromFile("C:\\Users\\physics\\Documents\\david\\uni\\year_2_semester_2\\Hackaton-Os-342\\images_folder\\monkey.png");
                 //pictureBox.Image = new Bitmap(Path.Combine(Environment.CurrentDirectory, "pic.png")); // Set the image for the PictureBox
-                pictureBox.Location = new Point(chair.Dimension[0] +667, 32+ chair.Dimension[1]); // Set the location (top-left coordinates) where you want the PictureBox to appear on the form
+                pictureBox.Location = new Point(chair.Dimension[0] +500,  chair.Dimension[1] + 5); // Set the location (top-left coordinates) where you want the PictureBox to appear on the form
                 // TO DO : add to ponit the strat coordinated of the big image.
                 pictureBox.Size = new Size(36, 40);                // Set the size of the PictureBox
                 pictureBox.SizeMode = PictureBoxSizeMode.StretchImage;
                 pictureBox.Visible = false;
                 chair.pictureBox = pictureBox;
                 this.Controls.Add(pictureBox);
+                pictureBox.BringToFront();
             }
             Thread myThread = new Thread(StartProducerConsumerCommunication);
 

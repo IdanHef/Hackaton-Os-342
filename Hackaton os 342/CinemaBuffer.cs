@@ -42,26 +42,27 @@ public class Buffer
             if (availableChair != null)
             {
                 availableChair.TakeChair();
-                PictureBox pictureBox = availableChair.pictureBox;
-                if (pictureBox == null) {
-                    availableChair.pictureBox = new PictureBox();
-                    pictureBox = availableChair.pictureBox;
-                    pictureBox.Image = Image.FromFile("C:\\Users\\physics\\Documents\\david\\uni\\year_2_semester_2\\Hackaton-Os-342\\images_folder\\monkey.png");
-                    //pictureBox.Image = new Bitmap(Path.Combine(Environment.CurrentDirectory, "pic.png")); // Set the image for the PictureBox
-                    pictureBox.Location = new Point(availableChair.Dimension[0], availableChair.Dimension[1]); // Set the location (top-left coordinates) where you want the PictureBox to appear on the form
-                    // TO DO : add to ponit the strat coordinated of the big image.
-                    pictureBox.Size = new Size(36, 40);                // Set the size of the PictureBox
-                    pictureBox.SizeMode = PictureBoxSizeMode.StretchImage;                // Adjust the size mode according to your needs
-                }
-                else
-                {
+                //PictureBox pictureBox = availableChair.pictureBox;
+                //if (pictureBox == null) {
+                //    availableChair.pictureBox = new PictureBox();
+                //    pictureBox = availableChair.pictureBox;
+                //    pictureBox.Image = Image.FromFile("C:\\Users\\physics\\Documents\\david\\uni\\year_2_semester_2\\Hackaton-Os-342\\images_folder\\monkey.png");
+                //    //pictureBox.Image = new Bitmap(Path.Combine(Environment.CurrentDirectory, "pic.png")); // Set the image for the PictureBox
+                //    pictureBox.Location = new Point(availableChair.Dimension[0], availableChair.Dimension[1]); // Set the location (top-left coordinates) where you want the PictureBox to appear on the form
+                //    // TO DO : add to ponit the strat coordinated of the big image.
+                //    pictureBox.Size = new Size(36, 40);                // Set the size of the PictureBox
+                //    pictureBox.SizeMode = PictureBoxSizeMode.StretchImage;                // Adjust the size mode according to your needs
+                //}
+                //else
+                //{
                     userControl.Invoke((MethodInvoker)(() =>
                     {
                         availableChair.pictureBox.Visible = true;
+                        availableChair.pictureBox.BringToFront();
 
                     }));
                     //give new image, random func that givens random image
-                }
+                //}
                 // Add the PictureBox to the form's Controls collection                
                 return availableChair;
             }
