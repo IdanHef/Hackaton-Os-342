@@ -134,7 +134,9 @@ namespace Hackaton_os_342
             this.startButton.Visible = false;
         }
 
-      
-        
+        private void numberOfProducersTextBox_TextChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }

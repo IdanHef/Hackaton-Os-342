@@ -65,6 +65,7 @@
             this.numberOfProducersTextBox.Name = "numberOfProducersTextBox";
             this.numberOfProducersTextBox.Size = new System.Drawing.Size(125, 27);
             this.numberOfProducersTextBox.TabIndex = 2;
+            this.numberOfProducersTextBox.TextChanged += new System.EventHandler(this.numberOfProducersTextBox_TextChanged);
             // 
             // numberOfConsumersLabel
             // 
