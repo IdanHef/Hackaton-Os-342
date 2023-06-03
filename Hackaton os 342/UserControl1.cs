@@ -17,11 +17,65 @@ namespace Hackaton_os_342
         private int consumerCount;
         private int producerRatio;
         private int consumerRatio;
-        private Thread producerThread;
-        private Thread consumerThread;
-        private readonly Producer producer;
-        private readonly Consumer consumer;
+
         Buffer buffer;
+        private List<Thread> producerThreads;
+        private List<Thread> consumerThreads;
+        private List<Producer> producers;
+
+        private object producerLock;
+        private object consumerLock;
+
+        private int nextProducerIndex;
+        private int nextConsumerIndex;
+
+        public class CustomSemaphore
+        {
+            private Semaphore semaphore;
+            private int maximumCount;
+            private int currentCount;
+
+            public CustomSemaphore(int initialCount, int maximumCount)
+            {
+                semaphore = new Semaphore(initialCount, maximumCount);
+                this.maximumCount = maximumCount;
+                this.currentCount = initialCount;
+            }
+
+            public int CurrentCount => currentCount;
+
+            public bool IsFull => CurrentCount == maximumCount;
+
+            public bool WaitOne(int millisecondsTimeout)
+            {
+                return semaphore.WaitOne(millisecondsTimeout);
+            }
+
+            public void Release()
+            {
+                if (currentCount < maximumCount)
+                {
+                    semaphore.Release();
+                    currentCount++;
+                }
+            }
+
+            public void Wait()
+            {
+                semaphore.WaitOne();
+                currentCount--;
+            }
+
+            // Other methods and properties as needed
+        }
+
+
+        CustomSemaphore semaphore = new CustomSemaphore(0, 90);
+        //Semaphore semaphore = new Semaphore(0,90); // Semaphore to control buffer space
+        Mutex mutex = new Mutex();
+        Mutex mutex1 = new Mutex();
+        int waitingTasks;
+
 
         public UserControl1(int[] data)
         {   
@@ -31,10 +85,10 @@ namespace Hackaton_os_342
             producerRatio = data[2];
             consumerRatio = data[3];
             chairs = new Chair[90];
+            waitingTasks = 0;
             initializeChairs();
             buffer= new Buffer(chairs, this);
-            producer = new Producer(buffer);
-            consumer = new Consumer(buffer);
+            
             for (int i = 0; i < chairs.Length; i++)
             {
                 Chair chair = chairs[i];
@@ -47,14 +101,45 @@ namespace Hackaton_os_342
                 // TO DO : add to ponit the strat coordinated of the big image.
                 pictureBox.Size = new Size(36, 40);                // Set the size of the PictureBox
                 pictureBox.SizeMode = PictureBoxSizeMode.CenterImage;
-                pictureBox.Visible = true;
+                pictureBox.Visible = false;
                 chair.pictureBox = pictureBox;
                 
                 this.Controls.Add(pictureBox);
                 pictureBox.BringToFront();
             }
             this.pictureBox1.SendToBack();
-            Thread myThread = new Thread(StartProducerConsumerCommunication);
+            // Initialize the producerThreads and consumerThreads lists
+            producerThreads = new List<Thread>();
+            consumerThreads = new List<Thread>();
+            // Create synchronization objects
+            producerLock = new object();
+            consumerLock = new object();
+
+            producers = new List<Producer>();
+            for (int i = 0; i < producerCount; i++)
+            {
+                Producer producer = new Producer(buffer);
+                producers.Add(producer);
+
+                Thread producerThread = new Thread(() => ProducerThreadStart(producer));
+                producerThreads.Add(producerThread);
+            }
+
+
+            // Create and start the consumer threads
+            for (int i = 0; i < consumerCount; i++)
+            {
+                Consumer consumer = new Consumer(buffer);
+                Thread consumerThread = new Thread(() => ConsumerThreadStart());
+                consumerThreads.Add(consumerThread);
+            }
+
+            nextProducerIndex = 0;
+            nextConsumerIndex = 0;
+
+
+        Thread myThread = new Thread(StartProducerConsumerCommunication);
+        myThread.Start();
 
         }
 
@@ -223,59 +308,100 @@ namespace Hackaton_os_342
 
 
         }
-        //private void StartProducerConsumerCommunication()
-        //{
-        //    Thread.Sleep(1000);
-        //    producerThread = new Thread(() => producer.ProduceItems(producerCount));
-        //    consumerThread = new Thread(() => consumer.ConsumeItems(consumerCount));
-        //    Start the producer and consumer threads
-        //    producerThread.Start();
-        //    consumerThread.Start();
-
-        //    Optionally, you can join the threads to wait for their completion
-
-        //   producerThread.Join();
-        //   consumerThread.Join();
-
-        //    You can also update the UI or display status messages here
-        //    to indicate that the producer and consumer actions have started.
-
-        //}
+       
         private void StartProducerConsumerCommunication()
         {
-            // Create a timer with an interval based on the producer ratio
-            System.Threading.Timer producerTimer = new System.Threading.Timer(ProduceItemsTimerCallback, null, TimeSpan.Zero, TimeSpan.FromMilliseconds(producerRatio));
+            Thread.Sleep(500);
+            buffer.SetUserControl(this);
+            //Thread.Sleep(1000);
 
-            // Create a timer with an interval based on the consumer ratio
-            System.Threading.Timer consumerTimer = new System.Threading.Timer(ConsumeItemsTimerCallback, null, TimeSpan.Zero, TimeSpan.FromMilliseconds(consumerRatio));
-
-            // Optionally, you can update the UI or display status messages here
-            // to indicate that the producer and consumer actions have started.
+            Thread createP_threads = new Thread(() => StartProducerThreads());
+            createP_threads.Start();
+            Thread createC_threads = new Thread(() => StartConsumerThreads());
+            createC_threads.Start();
         }
 
-        private void ProduceItemsTimerCallback(object state)
+  
+
+        public void StartProducerThreads()
         {
-            // Create a new producer thread
-            Thread producerThread = new Thread(() => producer.ProduceItems(producerCount));
 
-            // Start the producer thread
-            producerThread.Start();
-
-            // Optionally, you can join the producer thread to wait for its completion
-            producerThread.Join();
+            // Start the producer threads
+            for (int i = 0; i < producerCount; i++)
+            {
+                Thread.Sleep(producerRatio * 1000);
+                producerThreads[i].Start();
+                //producers[i].change_f_run();
+            }
         }
 
-        private void ConsumeItemsTimerCallback(object state)
+        public void StartConsumerThreads()
         {
-            // Create a new consumer thread
-            Thread consumerThread = new Thread(() => consumer.ConsumeItems(consumerCount));
+            // Start the consumer threads
 
-            // Start the consumer thread
-            consumerThread.Start();
-
-            // Optionally, you can join the consumer thread to wait for its completion
-            consumerThread.Join();
+            foreach (Thread consumerThread in consumerThreads)
+            {
+                Thread.Sleep(consumerRatio * 1000);
+                consumerThread.Start();
+            }
         }
+
+        void ConsumerThreadStart()
+        {
+            while (true)
+            {
+                //semaphore.WaitOne(Int32.MaxValue); // Wait for an item in the buffer
+                semaphore.Wait();
+
+                mutex.WaitOne();
+
+                // Remove an item from the buffer (consume)
+                buffer.GetOccupiedChairAndR();
+               
+
+                mutex.ReleaseMutex();
+
+                semaphore.Release(); // Signal the producer thread
+
+                Thread.Sleep(consumerCount * consumerRatio * 1000); // Sleep based on the ratio and number of consumer threads
+            }
+        }
+
+        void ProducerThreadStart(Producer producer)
+        {
+            while (true)
+            {
+                if (semaphore.IsFull) // Check if there is space in the buffer
+                {
+                    // Producer is waiting, increase waitingTasks
+                    mutex1.WaitOne();
+
+                    // Producer is waiting, increase waitingTasks
+                    waitingTasks++;
+
+                    mutex1.ReleaseMutex();
+                }
+                //semaphore.WaitOne(Int32.MaxValue); // Wait for an item in the buffer
+                semaphore.Wait();
+
+                mutex.WaitOne();
+
+                mutex1.WaitOne();
+                waitingTasks--;
+                mutex1.ReleaseMutex();
+
+                // Add the item to the buffer (produce)
+                producer.ProduceItems();
+
+                mutex.ReleaseMutex();
+                    
+                semaphore.Release(); // Signal the consumer thread
+
+                Thread.Sleep(producerCount * producerRatio * 1000); // Sleep based on the ratio and number of producer threads
+            }
+        }
+
+        
 
     }
 }

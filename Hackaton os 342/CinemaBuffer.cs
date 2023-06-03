@@ -1,11 +1,11 @@
 ﻿using Hackaton_os_342;
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Security.Claims;
 using System.Threading;
 using System.Windows.Forms;
-
 
 public class Buffer
 {
@@ -13,6 +13,8 @@ public class Buffer
     private readonly object lockObject;
     private readonly int capacity;
     private int waitingCount;
+    private UserControl userControl1;
+
 
     public int Capacity => capacity;
     public int OccupiedCount => chairs.Count(chair => chair.IsTaken);
@@ -22,7 +24,11 @@ public class Buffer
     private UserControl1 userControl;
 
     public double PercentageCapacity => (double)OccupiedCount / capacity * 100;
-    public double AverageWaitingTime { get; private set; }
+    private int producerTasksWaiting;
+    private Stopwatch stopwatch;
+
+    public int ProducerTasksWaiting => producerTasksWaiting;
+    public double AverageWaitingTime => producerTasksWaiting > 0 ? stopwatch.Elapsed.TotalMilliseconds / producerTasksWaiting : 0;
 
     public Buffer(Chair[] chairDimensions, UserControl1 userControl1)
     {
@@ -31,6 +37,19 @@ public class Buffer
         capacity = chairDimensions.Length;
         waitingCount = 0;
         userControl = userControl1;
+        producerTasksWaiting = 0;
+        stopwatch = new Stopwatch();
+        stopwatch.Start();
+    }
+
+    public void IncrementProducerTasksWaiting()
+    {
+        producerTasksWaiting++;
+    }
+
+    public void DecrementProducerTasksWaiting()
+    {
+        producerTasksWaiting--;
     }
 
     public Chair GetAvailableChair()
@@ -46,26 +65,17 @@ public class Buffer
                 PictureBox pictureBox = availableChair.pictureBox;
                 if (pictureBox == null)
                 {
-                    availableChair.pictureBox = new PictureBox();
-                    pictureBox = availableChair.pictureBox;
-                    pictureBox.Image = Image.FromFile("C:\\Users\\physics\\Documents\\david\\uni\\year_2_semester_2\\Hackaton-Os-342\\images_folder\\monkey.png");
-                    //pictureBox.Image = new Bitmap(Path.Combine(Environment.CurrentDirectory, "pic.png")); // Set the image for the PictureBox
-                    pictureBox.Location = new Point(availableChair.Dimension[0], availableChair.Dimension[1]); // Set the location (top-left coordinates) where you want the PictureBox to appear on the form
-                    // TO DO : add to ponit the strat coordinated of the big image.
-                    pictureBox.Size = new Size(36, 40);                // Set the size of the PictureBox
-                    pictureBox.SizeMode = PictureBoxSizeMode.StretchImage;                // Adjust the size mode according to your needs
+                  
                 }
                 else
                 {
-                    userControl.Invoke((MethodInvoker)(() =>
+                    userControl1.Invoke((MethodInvoker)(() =>
                     {
                         availableChair.pictureBox.Visible = true;
                         availableChair.pictureBox.BringToFront();
-
                     }));
-                    //give new image, random func that givens random image
                 }
-                // Add the PictureBox to the form's Controls collection                
+
                 return availableChair;
             }
 
@@ -73,16 +83,9 @@ public class Buffer
         }
     }
 
-    public void ReleaseChair(Chair chair)
-    {
-        lock (lockObject)
-        {   
-            chair.pictureBox.Visible = false;
-            chair.ReleaseChair();
-        }
-    }
-    
-    public int GetChairIndex(Chair chair)
+
+
+public int GetChairIndex(Chair chair)
     {
         lock (lockObject)
         {
@@ -90,20 +93,28 @@ public class Buffer
         }
     }
 
-    public Chair GetOccupiedChair()
+    public Chair GetOccupiedChairAndR()
     {
         lock (lockObject)
         {
-            Chair occupiedChair = chairs.FirstOrDefault(chair => chair.IsTaken && chair.HasAnimal);
+            Chair occupiedChair = chairs.FirstOrDefault(chair => chair.IsTaken);
 
             if (occupiedChair != null)
             {
+                userControl1.Invoke((MethodInvoker)(() =>
+                {
+                    occupiedChair.pictureBox.Visible = false;
+                }));
+                occupiedChair.ReleaseChair();
                 return occupiedChair;
             }
 
             return null;
         }
     }
-    // asdf
+    public void SetUserControl(UserControl userControl)
+    {
+        this.userControl1 = userControl;
+    }
 
 }
