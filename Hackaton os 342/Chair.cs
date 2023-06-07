@@ -53,5 +53,6 @@ public class Chair
     public void ReleaseChair()
     {
         IsTaken = false;
+        //pictureBox.Visible = false;
     }
 }

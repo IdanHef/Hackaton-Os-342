@@ -20,7 +20,7 @@ namespace Hackaton_os_342
             for (int i = 0; i < numberOfItems; i++)
             {
                 // Get an occupied chair from the buffer
-                Chair chair = buffer.GetOccupiedChair();
+                Chair chair = buffer.GetOccupiedChairAndR();
 
                 if (chair != null)
                 {
