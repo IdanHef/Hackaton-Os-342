@@ -69,8 +69,8 @@ namespace Hackaton_os_342
             {
                 Chair chair = chairs[i];
                 PictureBox pictureBox = new PictureBox();
-                //pictureBox.Image = Image.FromFile("D:\\My documents\\university\\year 2 semester 2\\Operating System\\homeworks\\hw2\\Hackaton os 342\\images_folder\\monkey.png");
-                pictureBox.Image = Image.FromFile("C:\\Users\\physics\\Documents\\david\\uni\\year_2_semester_2\\Hackaton-Os-342\\images_folder\\monkey.png");
+                string path = Path.Combine(Environment.CurrentDirectory, "monkey.png");
+                pictureBox.Image = Image.FromFile(path);
                 //pictureBox.Image = new Bitmap(Path.Combine(Environment.CurrentDirectory, "pic.png")); // Set the image for the PictureBox
 
                 int x = pictureBox2.Left;
@@ -117,6 +117,7 @@ namespace Hackaton_os_342
 
 
             Thread myThread = new Thread(StartProducerConsumerCommunication);
+
             myThread.Start();
 
             // Set up timer
