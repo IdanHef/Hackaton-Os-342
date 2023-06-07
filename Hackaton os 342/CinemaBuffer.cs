@@ -24,12 +24,11 @@ public class Buffer
     private UserControl1 userControl;
 
     public double PercentageCapacity => (double)OccupiedCount / capacity * 100;
-    private int producerTasksWaiting;
-    private Stopwatch stopwatch;
+   
 
-    public int ProducerTasksWaiting => producerTasksWaiting;
-    public double AverageWaitingTime => producerTasksWaiting > 0 ? stopwatch.Elapsed.TotalMilliseconds / producerTasksWaiting : 0;
+    //public double AverageWaitingTime => producerTasksWaiting > 0 ? stopwatch.Elapsed.TotalMilliseconds / producerTasksWaiting : 0;
 
+   
     public Buffer(Chair[] chairDimensions, UserControl1 userControl1)
     {
         chairs = new List<Chair>(chairDimensions);
@@ -37,20 +36,11 @@ public class Buffer
         capacity = chairDimensions.Length;
         waitingCount = 0;
         userControl = userControl1;
-        producerTasksWaiting = 0;
-        stopwatch = new Stopwatch();
-        stopwatch.Start();
+        //producerTasksWaiting = 0;
+        
     }
 
-    public void IncrementProducerTasksWaiting()
-    {
-        producerTasksWaiting++;
-    }
-
-    public void DecrementProducerTasksWaiting()
-    {
-        producerTasksWaiting--;
-    }
+   
 
     public Chair GetAvailableChair()
     {
