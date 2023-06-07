@@ -32,8 +32,9 @@ namespace Hackaton_os_342
         private System.Threading.Timer timer;
         public Stopwatch stopwatch;
 
-        private static object counterLock = new object();
-        private static int counter_to_check = 0;
+        private System.Threading.Timer avgWaitingTimeTimer;
+        public Stopwatch avgWaitingTimeStopwatch;
+        private bool isAvgWaitingTimeRunning = false;
 
         public double AverageWaitingTime => waitingTasks > 0 ? stopwatch.Elapsed.TotalMilliseconds / waitingTasks : 0;
 
@@ -61,6 +62,11 @@ namespace Hackaton_os_342
 
             for (int i = 0; i < chairs.Length; i++)
             {
+
+            }
+
+            for (int i = 0; i < chairs.Length; i++)
+            {
                 Chair chair = chairs[i];
                 PictureBox pictureBox = new PictureBox();
                 //pictureBox.Image = Image.FromFile("D:\\My documents\\university\\year 2 semester 2\\Operating System\\homeworks\\hw2\\Hackaton os 342\\images_folder\\monkey.png");
@@ -69,10 +75,10 @@ namespace Hackaton_os_342
 
                 int x = pictureBox2.Left;
                 int y = pictureBox2.Top;
-                pictureBox.Location = new Point(chair.Dimension[0] + x, y + chair.Dimension[1]); // Set the location (top-left coordinates) where you want the PictureBox to appear on the form
-                // TO DO : add to ponit the strat coordinated of the big image.
-                pictureBox.Size = new Size(28, 31);                // Set the size of the PictureBox
-                pictureBox.SizeMode = PictureBoxSizeMode.CenterImage;
+                pictureBox.Location = new Point(chair.Dimension[0] - 385, chair.Dimension[1] - 50); // Set the location (top-left coordinates) where you want the PictureBox to appear on the form
+                // TO DO : add to ponit the strat coordinated of 2he big image.
+                pictureBox.Size = new Size(28, 31 );                // Set the size of the PictureBox
+                pictureBox.SizeMode = PictureBoxSizeMode.AutoSize;
                 pictureBox.Visible = false;
                 chair.pictureBox = pictureBox;
 
@@ -117,6 +123,7 @@ namespace Hackaton_os_342
             timer = new System.Threading.Timer(Timer_Tick, null, 0, 250);
             stopwatch = new Stopwatch();
             stopwatch.Start();
+            avgWaitingTimeStopwatch = new Stopwatch();
 
         }
 
@@ -183,96 +190,98 @@ namespace Hackaton_os_342
         private void initializeChairs()
         {
             int[,] coordinates = new int[,]
-                {{131, 629},
-{132, 518},
-{132, 574},
-{150, 295},
-{150, 351},
-{150, 406},
-{150, 461},
-{168, 239},
-{169, 518},
-{169, 574},
-{169, 628},
-{188, 351},
-{188, 406},
-{188, 461},
-{189, 295},
-{206, 239},
-{207, 518},
-{207, 574},
-{207, 629},
-{225, 351},
-{225, 461},
-{226, 295},
-{226, 406},
-{243, 239},
-{243, 628},
-{244, 517},
-{244, 574},
-{263, 295},
-{263, 351},
-{263, 406},
-{263, 461},
-{281, 239},
-{282, 518},
-{282, 574},
-{282, 629},
-{301, 295},
-{301, 351},
-{301, 406},
-{301, 461},
-{318, 629},
-{319, 239},
-{320, 517},
-{321, 573},
-{337, 351},
-{338, 295},
-{338, 406},
-{339, 461},
-{356, 239},
-{356, 628},
-{357, 573},
-{358, 517},
-{375, 351},
-{376, 295},
-{376, 406},
-{376, 461},
-{393, 239},
-{394, 628},
-{395, 517},
-{395, 572},
-{413, 295},
-{413, 351},
-{413, 406},
-{414, 461},
-{431, 239},
-{431, 516},
-{432, 572},
-{432, 628},
-{450, 351},
-{451, 295},
-{451, 406},
-{451, 461},
-{468, 239},
-{468, 629},
-{469, 572},
-{470, 517},
-{487, 351},
-{488, 295},
-{488, 406},
-{488, 461},
-{506, 239},
-{506, 517},
-{506, 573},
-{506, 628},
-{525, 295},
-{525, 351},
-{525, 461},
-{526, 406},
-{542, 628},
-{543, 517},
-{544, 572}};
+                {
+    {1105, 685},
+    {1106, 574},
+    {1106, 630},//
+    {1124, 351},
+    {1124, 407},
+    {1124, 462},
+    {1124, 517},
+    {1142, 295},
+    {1143, 574},
+    {1143, 630},
+    {1143, 684},
+    {1162, 407},
+    {1162, 462},
+    {1162, 517},
+    {1163, 351},
+    {1180, 295},
+    {1181, 574},
+    {1181, 630},
+    {1181, 685},
+    {1199, 407},
+    {1199, 517},
+    {1200, 351},
+    {1200, 462},
+    {1217, 295},
+    {1217, 684},
+    {1218, 573},
+    {1218, 630},
+    {1237, 351},
+    {1237, 407},
+    {1237, 462},
+    {1237, 517},
+    {1255, 295},
+    {1256, 574},//
+    {1256, 630},
+    {1256, 685},
+    {1275, 351},
+    {1275, 407},
+    {1275, 462},
+    {1275, 517},
+    {1292, 685},
+    {1293, 295},
+    {1294, 573},
+    {1295, 629},
+    {1311, 407},
+    {1312, 351},
+    {1312, 462},
+    {1313, 517},
+    {1330, 295},
+    {1330, 684},
+    {1331, 629},
+    {1332, 573},
+    {1349, 407},
+    {1350, 351},
+    {1350, 462},
+    {1350, 517},
+    {1367, 295},
+    {1368, 684},
+    {1369, 573},
+    {1369, 628},
+    {1387, 351},
+    {1387, 407},
+    {1387, 462},
+    {1388, 517},
+    {1405, 295},
+    {1405, 572},
+    {1406, 628},
+    {1406, 684},
+    {1424, 407},
+    {1425, 351},
+    {1425, 462},
+    {1425, 517},
+    {1442, 295},
+    {1442, 685},
+    {1443, 628},
+    {1444, 573},
+    {1461, 407},
+    {1462, 351},
+    {1462, 462},
+    {1462, 517},
+    {1480, 295},
+    {1480, 573},
+    {1480, 629},
+    {1480, 684},
+    {1499, 351},
+    {1499, 407},
+    {1499, 517},
+    {1500, 462},
+    {1516, 684},
+    {1517, 573},
+    {1518, 628}
+};
 
             for (int i = 0; i < 90; i++)
             {
@@ -346,7 +355,6 @@ namespace Hackaton_os_342
         {
             while (true)
             {
-                bool was_full = false;
                 //if (!semaphore_test.WaitOne(0)) // Check if there is space in the buffer
                 //{
                 //    // Producer is waiting, increase waitingTasks
@@ -377,8 +385,15 @@ namespace Hackaton_os_342
                 //semaphore.WaitOne(Int32.MaxValue); // Wait for an item in the buffer
                 mutex.WaitOne();
 
+                if (waitingTasks > 0 && !isAvgWaitingTimeRunning)
+                {
+                    avgWaitingTimeStopwatch.Start();
+                    isAvgWaitingTimeRunning = true;
+                }
+
                 waitingTasks++; // Increment the waiting producers counter
 
+               
                 mutex.ReleaseMutex();
 
                 empty_semaphore.WaitOne();
@@ -404,6 +419,8 @@ namespace Hackaton_os_342
                 //        waitingTasks--;
                 //    }
                 //}
+               
+
                 waitingTasks--;
 
                 // Add the item to the buffer (produce)
@@ -418,13 +435,29 @@ namespace Hackaton_os_342
         }
         private void Timer_Tick(object state)
         {
-            Invoke(new Action(() =>
+            try
             {
-                label6.Text = stopwatch.Elapsed.TotalSeconds.ToString();
-                label9.Text = buffer.PercentageCapacity.ToString();
-                label10.Text = waitingTasks.ToString();
-                label11.Text = AverageWaitingTime.ToString();
-            }));
+                Invoke(new Action(() =>
+                {
+                    label6.Text = stopwatch.Elapsed.TotalSeconds.ToString();
+                    label9.Text = buffer.PercentageCapacity.ToString();
+                    label10.Text = waitingTasks.ToString();
+                    label11.Text = GetAverageWaitingTime().ToString();
+                }));
+            }
+            catch (Exception ex) { }
+
+        }
+        private double GetAverageWaitingTime()
+        {
+            if (waitingTasks > 0)
+            {
+                return avgWaitingTimeStopwatch.Elapsed.TotalSeconds / waitingTasks;
+            }
+            else
+            {
+                return 0;
+            }
         }
 
         private void label6_Click(object sender, EventArgs e)
