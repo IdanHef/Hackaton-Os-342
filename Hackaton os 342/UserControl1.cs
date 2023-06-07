@@ -30,6 +30,8 @@ namespace Hackaton_os_342
 
 
         private System.Threading.Timer timer;
+        private System.Threading.Timer timer_for_screen
+;
         public Stopwatch stopwatch;
 
         private System.Threading.Timer avgWaitingTimeTimer;
@@ -38,6 +40,7 @@ namespace Hackaton_os_342
 
         public double AverageWaitingTime => waitingTasks > 0 ? stopwatch.Elapsed.TotalMilliseconds / waitingTasks : 0;
 
+        private int currentScreenImageIndex = 0; // Index of the current screen image to display
 
 
 
@@ -75,7 +78,8 @@ namespace Hackaton_os_342
 
                 int x = pictureBox2.Left;
                 int y = pictureBox2.Top;
-                pictureBox.Location = new Point(chair.Dimension[0] - 385, chair.Dimension[1] - 50); // Set the location (top-left coordinates) where you want the PictureBox to appear on the form
+                //pictureBox.Location = new Point(chair.Dimension[0] - 385, chair.Dimension[1] - 50); // Set the location (top-left coordinates) where you want the PictureBox to appear on the form
+                pictureBox.Location = new Point(chair.Dimension[0] , chair.Dimension[1]); // Set the location (top-left coordinates) where you want the PictureBox to appear on the form
                 // TO DO : add to ponit the strat coordinated of 2he big image.
                 pictureBox.Size = new Size(28, 31 );                // Set the size of the PictureBox
                 pictureBox.SizeMode = PictureBoxSizeMode.AutoSize;
@@ -122,6 +126,7 @@ namespace Hackaton_os_342
 
             // Set up timer
             timer = new System.Threading.Timer(Timer_Tick, null, 0, 250);
+            timer_for_screen = new System.Threading.Timer(Timer_Tick_for_screen, null, 0, 3000);
             stopwatch = new Stopwatch();
             stopwatch.Start();
             avgWaitingTimeStopwatch = new Stopwatch();
@@ -192,96 +197,65 @@ namespace Hackaton_os_342
         {
             int[,] coordinates = new int[,]
                 {
-    {1105, 685},
-    {1106, 574},
-    {1106, 630},//
-    {1124, 351},
-    {1124, 407},
-    {1124, 462},
-    {1124, 517},
-    {1142, 295},
-    {1143, 574},
-    {1143, 630},
-    {1143, 684},
-    {1162, 407},
-    {1162, 462},
-    {1162, 517},
-    {1163, 351},
-    {1180, 295},
-    {1181, 574},
-    {1181, 630},
-    {1181, 685},
-    {1199, 407},
-    {1199, 517},
-    {1200, 351},
-    {1200, 462},
-    {1217, 295},
-    {1217, 684},
-    {1218, 573},
-    {1218, 630},
-    {1237, 351},
-    {1237, 407},
-    {1237, 462},
-    {1237, 517},
-    {1255, 295},
-    {1256, 574},//
-    {1256, 630},
-    {1256, 685},
-    {1275, 351},
-    {1275, 407},
-    {1275, 462},
-    {1275, 517},
-    {1292, 685},
-    {1293, 295},
-    {1294, 573},
-    {1295, 629},
-    {1311, 407},
-    {1312, 351},
-    {1312, 462},
-    {1313, 517},
-    {1330, 295},
-    {1330, 684},
-    {1331, 629},
-    {1332, 573},
-    {1349, 407},
-    {1350, 351},
-    {1350, 462},
-    {1350, 517},
-    {1367, 295},
-    {1368, 684},
-    {1369, 573},
-    {1369, 628},
-    {1387, 351},
-    {1387, 407},
-    {1387, 462},
-    {1388, 517},
-    {1405, 295},
-    {1405, 572},
-    {1406, 628},
-    {1406, 684},
-    {1424, 407},
-    {1425, 351},
-    {1425, 462},
-    {1425, 517},
-    {1442, 295},
-    {1442, 685},
-    {1443, 628},
-    {1444, 573},
-    {1461, 407},
-    {1462, 351},
-    {1462, 462},
-    {1462, 517},
-    {1480, 295},
-    {1480, 573},
-    {1480, 629},
-    {1480, 684},
-    {1499, 351},
-    {1499, 407},
-    {1499, 517},
-    {1500, 462},
-    {1516, 684},
-    {1517, 573},
-    {1518, 628}
+    //{1105, 685},
+    {1000, 290 },
+    {975, 290}, {950, 290}, {925, 290}, {900, 290}, {875, 290}, {850, 290}, {825, 290}, {800, 290}, {775, 290}, {750, 290},
+    {750, 340},{775, 340}, {800, 340}, {825, 340}, {850, 340}, {875, 340}, {900, 340}, {925, 340}, {950, 340}, {975, 340}, {1000, 340},
+    {750, 388},{775, 388}, {800, 388}, {825, 388}, {850, 388}, {875, 388}, {900, 388}, {925, 388}, {950, 388}, {975, 388}, {1000, 388},
+    {750, 435},{775, 435}, {800, 435}, {825, 435}, {850, 435}, {875, 435}, {900, 435}, {925, 435}, {950, 435}, {975, 435}, {1000, 435},
+    
+                {734, 571},
+                {759, 571},
+                {784, 571},
+                {809, 571},
+                {834, 571},
+                {859, 571},
+                {884, 571},
+                {909, 571},
+                {934, 571},
+                {959, 571},
+                {984, 571},
+                {1009, 571},
+
+                // 12
+                {734, 525},
+                {759, 525},
+                {784, 525},
+                {809, 525},
+                {834, 525},
+                {859, 525},
+                {884, 525},
+                {909, 525},
+                {934, 525},
+                {959, 525},
+                {984, 525},
+                {1009, 525},
+
+                // 12
+                {734, 478},
+                {759, 478},
+                {784, 478},
+                {809, 478},
+                {834, 478},
+                {859, 478},
+                {884, 478},
+                {909, 478},
+                {934, 478},
+                {959, 478},
+                {984, 478},
+                {1009, 478},
+
+                // 10 first line
+                {744+ 15, 245},
+                {769+ 15, 245},
+                {794+ 15, 245},
+                {819+ 15, 245},
+                {844+ 15, 245},
+                {869+ 15, 245},
+                {894+ 15, 245},
+                {919+ 15, 245},
+                {944+ 15, 245},
+                {969+ 15, 245},
 };
 
             for (int i = 0; i < 90; i++)
@@ -446,9 +420,34 @@ namespace Hackaton_os_342
                     label11.Text = GetAverageWaitingTime().ToString();
                 }));
             }
-            catch (Exception ex) { }
+            catch (Exception e) { }
 
         }
+        private void Timer_Tick_for_screen(object state)
+        {
+            try 
+            {
+                Invoke(new Action(() => {
+                    // Hide the current screen image
+                    pictureBox2.Visible = false;
+
+                    // Switch to the next screen image
+                    currentScreenImageIndex = (currentScreenImageIndex + 1) % 4; // Assuming you have 4 different images
+
+                    // Set the next screen image
+                    string imageName = GetNextScreenImagePath(); // Implement this method to get the path of the next screen image
+                    string path = Path.Combine(Environment.CurrentDirectory, imageName);
+                    pictureBox2.Image = Image.FromFile(path);
+
+                    // Show the next screen image
+                    pictureBox2.Visible = true;
+                }));
+
+            }
+            catch (Exception e){ }
+            
+        }
+
         private double GetAverageWaitingTime()
         {
             if (waitingTasks > 0)
@@ -458,6 +457,27 @@ namespace Hackaton_os_342
             else
             {
                 return 0;
+            }
+        }
+
+        private string GetNextScreenImagePath()
+        {
+            // Implement this method to return the path of the next screen image based on the currentScreenImageIndex
+            // You can use a switch statement, if-else conditions, or any logic to determine the path
+
+            // Example:
+            switch (currentScreenImageIndex)
+            {
+                case 0:
+                    return "zootopia.jpg"; // Replace with the actual path of the first image
+                case 1:
+                    return "tarzan.jpg"; // Replace with the actual path of the second image
+                case 2:
+                    return "KungFuPanda.jpg"; // Replace with the actual path of the third image
+                case 3:
+                    return "lion.jpg"; // Replace with the actual path of the fourth image
+                default:
+                    return "default.jpg"; // Replace with the default image path or handle the case as needed
             }
         }
 

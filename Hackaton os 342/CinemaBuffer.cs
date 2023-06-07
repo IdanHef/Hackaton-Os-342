@@ -59,11 +59,15 @@ public class Buffer
                 }
                 else
                 {
-                    userControl1.Invoke((MethodInvoker)(() =>
+                    try
                     {
-                        availableChair.pictureBox.Visible = true;
-                        availableChair.pictureBox.BringToFront();
-                    }));
+                        userControl1.Invoke((MethodInvoker)(() =>
+                        {
+                            availableChair.pictureBox.Visible = true;
+                            availableChair.pictureBox.BringToFront();
+                        }));
+                    }
+                    catch (Exception e){ }
                 }
 
                 return availableChair;
@@ -91,10 +95,14 @@ public int GetChairIndex(Chair chair)
 
             if (occupiedChair != null)
             {
-                userControl1.Invoke((MethodInvoker)(() =>
+                try
                 {
-                    occupiedChair.pictureBox.Visible = false;
-                }));
+                    userControl1.Invoke((MethodInvoker)(() =>
+                    {
+                        occupiedChair.pictureBox.Visible = false;
+                    }));
+                }
+                catch (Exception e) { }
                 occupiedChair.ReleaseChair();
                 return occupiedChair;
             }
